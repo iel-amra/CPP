@@ -2,7 +2,7 @@ NAME = phoneBook
 EXT = cpp
 SRC_DIR = src
 OBJ_DIR = obj
-SRC_FILES = main.cpp 
+SRC_FILES = Contact.cpp  main.cpp  PhoneBook.cpp
 SRC = $(SRC_FILES:%.${EXT}=${SRC_DIR}/%.${EXT})
 OBJ = $(SRC:${SRC_DIR}/%.${EXT}=${OBJ_DIR}/%.o)
 HEADER = header/PhoneBook.hpp header/Contact.hpp
@@ -19,7 +19,7 @@ ${NAME} : ${OBJ}
 	g++ $(FLAGS) $(OBJ) ${LIBFT} -o $(NAME)
 
 ${OBJ_DIR}/%.o : ${SRC_DIR}/%.${EXT} ${HEADER} ${H_HEADER} | ${OBJ_DIR}
-	g++ $(FLAGS) -c $< -o $@
+	g++ $(FLAGS) -include ${H_HEADER} -c $< -o $@
 
 FORCE :
 

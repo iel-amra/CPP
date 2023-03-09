@@ -2,7 +2,7 @@ NAME = megaphone
 EXT = cpp
 SRC_DIR = src
 OBJ_DIR = obj
-SRC_FILES = main.cpp 
+SRC_FILES = megaphone.cpp 
 SRC = $(SRC_FILES:%.${EXT}=${SRC_DIR}/%.${EXT})
 OBJ = $(SRC:${SRC_DIR}/%.${EXT}=${OBJ_DIR}/%.o)
 HEADER =
@@ -26,11 +26,11 @@ ${OBJ_DIR} :
 	mkdir $@
 
 clean :
-	rm -f ${OBJ}
+	rm -rf ${OBJ_DIR}
 
 fclean : 
 	rm -f ${NAME}
-	rm -f ${OBJ}
+	rm -rf ${OBJ_DIR}
 
 re : fclean all
 
