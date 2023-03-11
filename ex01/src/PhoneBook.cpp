@@ -6,14 +6,22 @@
 /*   By: iel-amra <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 15:38:46 by iel-amra          #+#    #+#             */
-/*   Updated: 2023/03/09 16:02:49 by iel-amra         ###   ########.fr       */
+/*   Updated: 2023/03/11 16:57:53 by iel-amra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	PhoneBook::add()
+PhoneBook::PhoneBook(): _last(-1), _nb(0)
 {
 }
 
-void	PhoneBook::search(std::string name)
+void	PhoneBook::add()
 {
+	_last = (last + 1) % 8;
+	_contacts[last].registering();
+	_nb++;
+}
+
+void	PhoneBook::display()
+{
+	cout << "Hello";	
 }
