@@ -25,6 +25,8 @@ public:
 	PhoneBook();
 	void	add();
 	void	display();
+	void	one_disp(int i);
+	int		get_last();
 };
 
 #endif

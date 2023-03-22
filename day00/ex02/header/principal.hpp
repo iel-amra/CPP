@@ -1,19 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   principal.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: iel-amra <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: iel-amra <iel-amra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/14 13:50:44 by iel-amra          #+#    #+#             */
-/*   Updated: 2023/03/13 12:16:57 by iel-amra         ###   ########.fr       */
+/*   Created: 2023/02/15 16:56:39 by iel-amra          #+#    #+#             */
+/*   Updated: 2023/03/21 15:09:48 by iel-amra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	main()
-{
-	PhoneBook	my_book;
-
-	my_book.add();
-	return (0);
-}
+#ifndef PRINCIPAL_HPP
+# define PRINCIPAL_HPP
+# include <iostream>
+# include <ctime>
+# include <sys/time.h>
+# include "Account.hpp"
+#endif

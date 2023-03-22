@@ -13,15 +13,15 @@
 void	Contact::registering()
 {
 	std::cout << "Please enter your last name." << std::endl;
-	std::cin >> _data[0];
+	std::getline (std::cin, _data[0]);
 	std::cout << "Please enter your fisrt name." << std::endl;
-	std::cin >> _data[1];
+	std::getline (std::cin, _data[1]);
 	std::cout << "Please enter your nickname." << std::endl;
-	std::cin >> _data[2];
+	std::getline (std::cin, _data[2]);
 	std::cout << "Please enter your phone number." << std::endl;
-	std::cin >> _data[3];
+	std::getline (std::cin, _data[3]);
 	std::cout << "Please enter your darkest secret." << std::endl;
-	std::cin >> _data[4];
+	std::getline (std::cin, _data[4]);
 }
 
 void	Contact::display()
