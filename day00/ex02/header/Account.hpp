@@ -16,6 +16,9 @@
 //                               Account Class                                //
 // ************************************************************************** //
 
+# include <iostream>
+# include "Account.hpp"
+
 class Account {
 
 

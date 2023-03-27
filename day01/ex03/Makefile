@@ -2,11 +2,10 @@ NAME = Test
 EXT = cpp
 SRC_DIR = src
 OBJ_DIR = obj
-SRC_FILES = main.cpp  Account.cpp
+SRC_FILES = main.cpp HumanA.cpp Weapon.cpp HumanB.cpp
 SRC = $(SRC_FILES:%.${EXT}=${SRC_DIR}/%.${EXT})
 OBJ = $(SRC:${SRC_DIR}/%.${EXT}=${OBJ_DIR}/%.o)
-HEADER =
-H_HEADER = header/Account.hpp
+HEADER = header/Weapon.hpp header/HumanA.hpp header/HumanB.hpp
 FLAGS = -Wall -Wextra -Werror
 
 all : ${NAME}
@@ -19,7 +18,7 @@ ${NAME} : ${OBJ}
 	g++ $(FLAGS) $(OBJ) ${LIBFT} -o $(NAME)
 
 ${OBJ_DIR}/%.o : ${SRC_DIR}/%.${EXT} ${HEADER} ${H_HEADER} | ${OBJ_DIR}
-	g++ $(FLAGS) -include ${H_HEADER} -c $< -o $@
+	g++ $(FLAGS) -c $< -o $@
 
 FORCE :
 

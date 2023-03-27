@@ -2,11 +2,11 @@ NAME = Test
 EXT = cpp
 SRC_DIR = src
 OBJ_DIR = obj
-SRC_FILES = main.cpp  Account.cpp
+SRC_FILES = main.cpp Zombie.cpp zombieHorde.cpp  
 SRC = $(SRC_FILES:%.${EXT}=${SRC_DIR}/%.${EXT})
 OBJ = $(SRC:${SRC_DIR}/%.${EXT}=${OBJ_DIR}/%.o)
-HEADER =
-H_HEADER = header/Account.hpp
+HEADER = 
+H_HEADER = header/Zombie.hpp
 FLAGS = -Wall -Wextra -Werror
 
 all : ${NAME}
