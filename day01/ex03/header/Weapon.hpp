@@ -6,7 +6,7 @@
 /*   By: iel-amra <iel-amra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/24 14:44:43 by iel-amra          #+#    #+#             */
-/*   Updated: 2023/03/27 15:29:26 by iel-amra         ###   ########.fr       */
+/*   Updated: 2023/03/30 19:29:31 by iel-amra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,9 @@
 class Weapon
 {
 public:
-    const string & getType();
-    void    setType(std::string type); 
+    const   std::string & getType();
+    void    setType(const char *type); 
+    Weapon(const char *type);
 
 private:
     std::string _type;

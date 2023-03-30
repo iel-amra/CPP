@@ -6,7 +6,7 @@
 /*   By: iel-amra <iel-amra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/27 13:56:31 by iel-amra          #+#    #+#             */
-/*   Updated: 2023/03/27 15:28:40 by iel-amra         ###   ########.fr       */
+/*   Updated: 2023/03/30 19:29:11 by iel-amra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,12 @@
 void HumanB::attack()
 {
     if (_weapon)
-        cout << _name << " attack with their " << _weapon->getType() << endl;
+        std::cout << _name << " attack with their " << _weapon->getType() << std::endl;
     else
-        cout << _name << " attack with their bare hands" << endl;
+        std::cout << _name << " attack with their bare hands" << std::endl;
 }
 
-HumanB::HumanB(char *name) : _name(name)
+HumanB::HumanB(const char *name) : _name(name), _weapon(NULL)
 {
 }
 
