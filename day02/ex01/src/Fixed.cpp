@@ -6,7 +6,7 @@
 /*   By: iel-amra <iel-amra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/03 14:11:09 by iel-amra          #+#    #+#             */
-/*   Updated: 2023/04/03 16:35:43 by iel-amra         ###   ########.fr       */
+/*   Updated: 2023/04/04 15:53:57 by iel-amra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,19 +16,24 @@ int const Fixed::_NbFractBits = 8;
 
 Fixed::Fixed() : _RawBits(0)
 {
+    std::cout << "Default constructor called" << std::endl;
 }
 
 Fixed::~Fixed()
 {
+    std::cout << "Default constructor called" << std::endl;
 }
 
-Fixed::Fixed(const Fixed &nb) : _RawBits(nb.getRawBits())
+Fixed::Fixed(const Fixed &nb) : _RawBits()
 {
+    std::cout << "Copy constructor called" << std::endl;
+    *this = nb;
 }
 
-void Fixed::operator=(const Fixed nb)
+void Fixed::operator=(const Fixed &nb)
 {
-   this->setRawBits(nb.getRawBits());
+    std::cout << "Copy assignment operator called" << std::endl;
+    this->setRawBits(nb.getRawBits());
 }
 
 int Fixed::getRawBits( void ) const
@@ -41,31 +46,30 @@ void Fixed::setRawBits( int const raw )
     _RawBits = raw;
 }
 
-Fixed(int nb) : 
-    _RawBits(nb << _NbFractBits)
+Fixed::Fixed(const int nb)
 {
-    _RawBits &= 0x7FFFFFFF;
-    _RawBits += (nb < 0) << 31;
+    std::cout << "Int constructor called" << std::endl;
+    _RawBits = nb * pow(2, _NbFractBits);
 }
 
-Fixed(float nb)
+Fixed::Fixed(const float nb)
 {
-    int mantissa;
-    int exposant;
-    char sign;
-
-    mantissa = nb & 0x3FFFFF;
-    sign = nb >> 31;
-    exposant = (nb << 1 >> 24) - 127;
-    _RawBits = mantissa * exposant
+    std::cout << "Float constructor called" << std::endl;
+    _RawBits = roundf(nb * pow(2, _NbFractBits));
 }
 
-float toFloat( void ) const
+float Fixed::toFloat( void ) const
 {
-    
+    return (_RawBits / pow(2, _NbFractBits));
 }
 
-int toInt( void ) const
+int Fixed::toInt( void ) const
 {
-    
+    return (_RawBits / pow(2, _NbFractBits));
+}
+
+std::ostream& operator<<(std::ostream &os, const Fixed &nb)
+{
+    os << nb.toFloat();
+    return (os);
 }
