@@ -6,7 +6,7 @@
 /*   By: iel-amra <iel-amra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/03 14:11:09 by iel-amra          #+#    #+#             */
-/*   Updated: 2023/04/04 17:29:30 by iel-amra         ###   ########.fr       */
+/*   Updated: 2023/04/08 14:43:25 by iel-amra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,12 +101,12 @@ int Fixed::operator!=(const Fixed & nb) const
 
 Fixed Fixed::operator+(const Fixed & nb) const
 {
-    return (this->getRawBits() + nb.getRawBits());
+    return (this->toFloat() + nb.toFloat());
 }
 
 Fixed Fixed::operator-(const Fixed & nb) const
 {
-    return (this->getRawBits() - nb.getRawBits());
+    return (this->toFloat() - nb.toFloat());
 }
 
 Fixed Fixed::operator*(const Fixed & nb) const

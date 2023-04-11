@@ -6,7 +6,7 @@
 /*   By: iel-amra <iel-amra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/05 16:49:27 by iel-amra          #+#    #+#             */
-/*   Updated: 2023/04/05 17:15:14 by iel-amra         ###   ########.fr       */
+/*   Updated: 2023/04/06 16:23:43 by iel-amra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,12 @@ private:
 
 public:
     Point();
-    Point(const & Point pt);
+    Point(const float & x, const float & y);
+    Point(const Point & pt);
     ~Point();
-    void operator=(const & Point pt);
 
-    Point(const)
-}
+    const Fixed & getX() const;
+    const Fixed & getY() const;
+};
 
 #endif

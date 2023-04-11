@@ -2,7 +2,7 @@ NAME = Test
 EXT = cpp
 SRC_DIR = src
 OBJ_DIR = obj
-SRC_FILES = main.cpp Fixed.cpp
+SRC_FILES = main.cpp Fixed.cpp Point.cpp
 SRC = $(SRC_FILES:%.${EXT}=${SRC_DIR}/%.${EXT})
 OBJ = $(SRC:${SRC_DIR}/%.${EXT}=${OBJ_DIR}/%.o)
 HEADER = header/Fixed.hpp
