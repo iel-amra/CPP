@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Point.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: iel-amra <iel-amra@student.42.fr>          +#+  +:+       +#+        */
+/*   By: belam <belam@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/05 16:50:07 by iel-amra          #+#    #+#             */
-/*   Updated: 2023/04/08 13:40:48 by iel-amra         ###   ########.fr       */
+/*   Updated: 2023/04/11 14:42:21 by belam            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,4 +36,10 @@ const Fixed & Point::getX() const
 const Fixed & Point::getY() const
 {
     return (_y);
+}
+
+std::ostream &operator<<(std::ostream &os, Point point)
+{
+    std::cout << point.getX() << ", " << point.getY();
+    return(os);
 }
