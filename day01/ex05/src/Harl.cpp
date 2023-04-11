@@ -6,7 +6,7 @@
 /*   By: belam <belam@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 21:45:21 by belam             #+#    #+#             */
-/*   Updated: 2023/03/30 22:49:49 by belam            ###   ########.fr       */
+/*   Updated: 2023/03/30 23:32:37 by belam            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ void Harl::complain( std::string level )
     i = 0;
     while (level.compare(_keys[i]))
         i++;
-    if (i == 5)
+    if (i < 0 || i > 3)
         return ;
     
     (this->*_f[i])();
