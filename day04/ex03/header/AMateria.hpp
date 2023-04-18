@@ -6,7 +6,7 @@
 /*   By: iel-amra <iel-amra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/18 15:13:40 by iel-amra          #+#    #+#             */
-/*   Updated: 2023/04/18 15:36:32 by iel-amra         ###   ########.fr       */
+/*   Updated: 2023/04/18 22:36:46 by iel-amra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <iostream>
 # include <string>
+# include <Character.hpp>
 
 class ICharacter;
 
@@ -30,10 +31,10 @@ class AMateria
 		AMateria(const AMateria &copy);
 		
 		// Destructor
-		~AMateria();
+		virtual ~AMateria();
 		
 		// Operators
-		AMateria & operator=(const AMateria &assign);
+		virtual AMateria & operator=(const AMateria &assign);
 
 		std::string const & getType() const; //Returns the materia type
 		virtual AMateria* clone() const = 0;

@@ -6,7 +6,7 @@
 /*   By: iel-amra <iel-amra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/18 15:13:36 by iel-amra          #+#    #+#             */
-/*   Updated: 2023/04/18 16:47:41 by iel-amra         ###   ########.fr       */
+/*   Updated: 2023/04/18 21:58:17 by iel-amra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ class Ice : public AMateria
 		// Operators
 		Ice & operator=(const Ice &assign);
 		void use(ICharacter& target);
+		Ice* clone() const;
 };
 
 #endif
