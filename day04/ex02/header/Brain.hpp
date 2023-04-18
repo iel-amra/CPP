@@ -1,34 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.hpp                                            :+:      :+:    :+:   */
+/*   Brain.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: iel-amra <iel-amra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/12 13:40:07 by iel-amra          #+#    #+#             */
-/*   Updated: 2023/04/17 16:51:58 by iel-amra         ###   ########.fr       */
+/*   Created: 2023/04/12 16:47:53 by iel-amra          #+#    #+#             */
+/*   Updated: 2023/04/12 17:41:07 by iel-amra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CAT_HPP
-# define CAT_HPP
-# include <Animal.hpp>
-# include <Brain.hpp>
+#ifndef BRAIN_HPP
+# define BRAIN_HPP
+# include <iostream>
 
-class Cat : public Animal
+class Brain
 {
 public:
-    Cat();
-    ~Cat();
-    Cat(const Cat & cat);
-    void operator=(const Cat & cat);
+    Brain();
+    virtual ~Brain();
+    Brain(const Brain & brain);
+    void operator=(const Brain & brain);
 
-    void makeSound() const;
-    const std::string getMainIdea() const;
-    void setMainIdea(const std::string & idea);
+    const std::string getIdea(const int i) const;
+    void setIdea(const std::string & idea, const int i);
 
 private:
-    Brain *_brain;
+    std::string _ideas[100];
 };
 
 #endif

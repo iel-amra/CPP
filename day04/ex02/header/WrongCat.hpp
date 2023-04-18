@@ -1,34 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.hpp                                            :+:      :+:    :+:   */
+/*   WrongCat.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: iel-amra <iel-amra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/12 13:40:07 by iel-amra          #+#    #+#             */
-/*   Updated: 2023/04/17 16:51:58 by iel-amra         ###   ########.fr       */
+/*   Updated: 2023/04/12 16:26:32 by iel-amra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CAT_HPP
-# define CAT_HPP
-# include <Animal.hpp>
-# include <Brain.hpp>
+#ifndef WRONGCAT_HPP
+# define WRONGCAT_HPP
+#include <WrongAnimal.hpp>
 
-class Cat : public Animal
+class WrongCat : public WrongAnimal
 {
 public:
-    Cat();
-    ~Cat();
-    Cat(const Cat & cat);
-    void operator=(const Cat & cat);
+    WrongCat();
+    ~WrongCat();
+    WrongCat(const WrongCat & wrongCat);
+    void operator=(const WrongCat & wrongCat);
 
     void makeSound() const;
-    const std::string getMainIdea() const;
-    void setMainIdea(const std::string & idea);
-
-private:
-    Brain *_brain;
 };
 
 #endif

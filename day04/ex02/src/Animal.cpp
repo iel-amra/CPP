@@ -1,34 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.hpp                                            :+:      :+:    :+:   */
+/*   Animal.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: iel-amra <iel-amra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/12 13:40:07 by iel-amra          #+#    #+#             */
-/*   Updated: 2023/04/17 16:51:58 by iel-amra         ###   ########.fr       */
+/*   Created: 2023/04/12 13:41:34 by iel-amra          #+#    #+#             */
+/*   Updated: 2023/04/12 15:41:23 by iel-amra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CAT_HPP
-# define CAT_HPP
-# include <Animal.hpp>
-# include <Brain.hpp>
+#include <Animal.hpp>
 
-class Cat : public Animal
+Animal::Animal() : type("Animal")
+{   
+}
+
+Animal::~Animal()
 {
-public:
-    Cat();
-    ~Cat();
-    Cat(const Cat & cat);
-    void operator=(const Cat & cat);
+}
 
-    void makeSound() const;
-    const std::string getMainIdea() const;
-    void setMainIdea(const std::string & idea);
+Animal::Animal(const Animal & animal) : type(animal.type)
+{
+}
 
-private:
-    Brain *_brain;
-};
+void Animal::operator=(const Animal & animal)
+{
+    type = animal.type;
+}
 
-#endif
+void Animal::makeSound() const
+{
+    std::cout << "Huuuuuuuum" << std::endl;
+}
+
+std::string Animal::getType() const
+{
+    return(type);
+}

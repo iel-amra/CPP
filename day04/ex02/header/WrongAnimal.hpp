@@ -1,34 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.hpp                                            :+:      :+:    :+:   */
+/*   WrongAnimal.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: iel-amra <iel-amra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/12 13:40:07 by iel-amra          #+#    #+#             */
-/*   Updated: 2023/04/17 16:51:58 by iel-amra         ###   ########.fr       */
+/*   Created: 2023/04/12 13:41:33 by iel-amra          #+#    #+#             */
+/*   Updated: 2023/04/12 16:26:12 by iel-amra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CAT_HPP
-# define CAT_HPP
-# include <Animal.hpp>
-# include <Brain.hpp>
+#ifndef WRONGANIMAL_HPP
+# define WRONGANIMAL_HPP
+# include <iostream>
 
-class Cat : public Animal
+class WrongAnimal
 {
 public:
-    Cat();
-    ~Cat();
-    Cat(const Cat & cat);
-    void operator=(const Cat & cat);
+    WrongAnimal();
+    ~WrongAnimal();
+    WrongAnimal(const WrongAnimal & wrongAnimal);
+    void operator=(const WrongAnimal & wrongAnimal);
 
     void makeSound() const;
-    const std::string getMainIdea() const;
-    void setMainIdea(const std::string & idea);
+    std::string getType() const;
 
-private:
-    Brain *_brain;
+protected:
+    std::string type;
 };
 
 #endif

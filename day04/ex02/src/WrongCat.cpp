@@ -1,51 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.cpp                                            :+:      :+:    :+:   */
+/*   WrongCat.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: iel-amra <iel-amra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/12 13:40:08 by iel-amra          #+#    #+#             */
-/*   Updated: 2023/04/13 17:30:07 by iel-amra         ###   ########.fr       */
+/*   Updated: 2023/04/12 16:36:29 by iel-amra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <Dog.hpp>
+#include <WrongCat.hpp>
 
-Dog::Dog() : Animal()
+WrongCat::WrongCat() : WrongAnimal()
 {
-    type = "Dog";
-    _brain = new Brain();
+    type = "WrongCat";
 }
 
-Dog::~Dog()
+WrongCat::~WrongCat()
 {
-    delete _brain;
 }
 
-Dog::Dog(const Dog & dog) : Animal(dog)
+WrongCat::WrongCat(const WrongCat & wrongCat) : WrongAnimal(wrongCat)
 {
-    _brain = new Brain();
-    *_brain = *dog._brain;
 }
 
-void Dog::operator=(const Dog & dog)
+void WrongCat::operator=(const WrongCat & wrongCat)
 {
-    Animal::operator=(dog);
-    *_brain = *dog._brain;
+    WrongAnimal::operator=(wrongCat);
 }
 
-void Dog::makeSound() const
+void WrongCat::makeSound() const
 {
-    std::cout << "Wouaf !!" << std::endl;
-}
-
-const std::string Dog::getMainIdea() const
-{
-    return(_brain->getIdea(0));
-}
-
-void Dog::setMainIdea(const std::string & idea)
-{
-    _brain->setIdea(idea, 0) ;
+    std::cout << "Meeeeuuuuuuh" << std::endl;
 }
