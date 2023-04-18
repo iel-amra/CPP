@@ -6,7 +6,7 @@
 /*   By: belam <belam@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/12 13:40:07 by iel-amra          #+#    #+#             */
-/*   Updated: 2023/04/17 18:51:33 by belam            ###   ########.fr       */
+/*   Updated: 2023/04/18 18:17:58 by belam            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@ public:
     void operator=(const Cat & cat);
 
     void makeSound() const;
+    const std::string getMainIdea() const;
+    void setMainIdea(const std::string & idea);
 
 private:
     Brain *_brain;

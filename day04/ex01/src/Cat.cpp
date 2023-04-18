@@ -6,7 +6,7 @@
 /*   By: iel-amra <iel-amra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/12 13:40:08 by iel-amra          #+#    #+#             */
-/*   Updated: 2023/04/12 18:25:01 by iel-amra         ###   ########.fr       */
+/*   Updated: 2023/04/13 17:30:24 by iel-amra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,4 +38,14 @@ void Cat::operator=(const Cat & cat)
 void Cat::makeSound() const
 {
     std::cout << "Miaouuuuu ~~~" << std::endl;
+}
+
+const std::string Cat::getMainIdea() const
+{
+    return(_brain->getIdea(0));
+}
+
+void Cat::setMainIdea(const std::string & idea)
+{
+    _brain->setIdea(idea, 0) ;
 }

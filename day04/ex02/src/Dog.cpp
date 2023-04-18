@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Dog.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: iel-amra <iel-amra@student.42.fr>          +#+  +:+       +#+        */
+/*   By: belam <belam@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/12 13:40:08 by iel-amra          #+#    #+#             */
-/*   Updated: 2023/04/12 18:31:06 by iel-amra         ###   ########.fr       */
+/*   Updated: 2023/04/18 18:18:59 by belam            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,4 +38,14 @@ void Dog::operator=(const Dog & dog)
 void Dog::makeSound() const
 {
     std::cout << "Wouaf !!" << std::endl;
+}
+
+const std::string Dog::getMainIdea() const
+{
+    return(_brain->getIdea(0));
+}
+
+void Dog::setMainIdea(const std::string & idea)
+{
+    _brain->setIdea(idea, 0) ;
 }
