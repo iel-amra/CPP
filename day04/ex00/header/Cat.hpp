@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   Cat.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: iel-amra <iel-amra@student.42.fr>          +#+  +:+       +#+        */
+/*   By: belam <belam@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/12 13:40:07 by iel-amra          #+#    #+#             */
-/*   Updated: 2023/04/12 14:50:45 by iel-amra         ###   ########.fr       */
+/*   Updated: 2023/04/17 18:51:56 by belam            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CAT_HPP
 # define CAT_HPP
-#include <Animal.hpp>
+# include <Animal.hpp>
 
 class Cat : public Animal
 {

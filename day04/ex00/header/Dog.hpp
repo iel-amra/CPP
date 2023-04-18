@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   Dog.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: iel-amra <iel-amra@student.42.fr>          +#+  +:+       +#+        */
+/*   By: belam <belam@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/12 13:40:07 by iel-amra          #+#    #+#             */
-/*   Updated: 2023/04/12 14:50:49 by iel-amra         ###   ########.fr       */
+/*   Updated: 2023/04/17 18:51:59 by belam            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef DOG_HPP
 # define DOG_HPP
-#include <Animal.hpp>
+# include <Animal.hpp>
 
 class Dog : public Animal
 {
