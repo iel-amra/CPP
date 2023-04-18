@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Character.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: iel-amra <iel-amra@student.42.fr>          +#+  +:+       +#+        */
+/*   By: belam <belam@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/18 22:01:44 by iel-amra          #+#    #+#             */
-/*   Updated: 2023/04/18 22:39:35 by iel-amra         ###   ########.fr       */
+/*   Updated: 2023/04/19 00:07:27 by belam            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,12 +64,16 @@ void Character::equip(AMateria* m)
 
 void Character::unequip(int idx)
 {
+	if (idx < 0 || idx > 3)
+	return;
 	delete _materia[idx];
 	_materia[idx] = NULL;
 }
 
 void Character::use(int idx, ICharacter& target)
 {
+	if (idx < 0 || idx > 3)
+		return;
 	if (_materia[idx])
 		_materia[idx]->use(target);
 }
