@@ -1,39 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Character.cpp                                      :+:      :+:    :+:   */
+/*   MateriaSource.cpp                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: iel-amra <iel-amra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/18 22:01:44 by iel-amra          #+#    #+#             */
-/*   Updated: 2023/04/19 10:13:21 by iel-amra         ###   ########.fr       */
+/*   Created: 2023/04/19 10:08:44 by iel-amra          #+#    #+#             */
+/*   Updated: 2023/04/19 11:07:40 by iel-amra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Character.hpp"
+#include "MateriaSource.hpp"
 
-Character::Character() :  _name("")
+// Constructors
+MateriaSource::MateriaSource()
 {
 	for (int i = 0; i < 4; i++)
 		_materia[i] = NULL;
 }
 
-Character::Character(const std::string &name) :  _name(name)
+MateriaSource::MateriaSource(const MateriaSource &copy)
 {
 	for (int i = 0; i < 4; i++)
 		_materia[i] = NULL;
-}
-
-Character::Character( const Character & src ) :  _name(src._name)
-{
-	for (int i = 0; i < 4; i++)
-		_materia[i] = NULL;
-	*this = src;
+	*this = copy;
 }
 
 
-
-Character::~Character()
+// Destructor
+MateriaSource::~MateriaSource()
 {
 	for (int i = 0; i < 4; i++)
 		if (_materia[i] != NULL)
@@ -41,44 +36,33 @@ Character::~Character()
 }
 
 
-Character &Character::operator=( Character const & rhs )
+// Operators
+MateriaSource & MateriaSource::operator=(const MateriaSource &assign)
 {
 	for (int i = 0; i < 4; i++)
 		if (_materia[i] != NULL)
 			delete _materia[i];
 	for (int i = 0; i < 4; i++)
-		if (rhs._materia[i] != NULL)
-			_materia[i] = rhs._materia[i]->clone();
+		if (assign._materia[i] != NULL)
+			_materia[i] = assign._materia[i]->clone();
 		else
 			_materia[i] = NULL;
 	return *this;
 }
 
-std::string const & Character::getName() const
+void MateriaSource::learnMateria(AMateria* materia)
 {
-	return (_name);
-}
-
-void Character::equip(AMateria* m)
-{	
 	int	i = 0;
 	while (_materia[i])
 		i++;
 	if (i <= 3)
-		_materia[i] = m;
+		_materia[i] = materia;
 }
 
-void Character::unequip(int idx)
+AMateria* MateriaSource::createMateria(std::string const & type)
 {
-	if (idx < 0 || idx > 3)
-		return;
-	_materia[idx] = NULL;
-}
-
-void Character::use(int idx, ICharacter& target)
-{
-	if (idx < 0 || idx > 3)
-		return;
-	if (_materia[idx])
-		_materia[idx]->use(target);
+	for (int i = 0; i < 4; i++)
+		if (_materia[i] != NULL && _materia[i]->getType() == type)
+			return (_materia[i]->clone());
+	return (NULL);
 }
