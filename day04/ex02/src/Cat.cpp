@@ -3,30 +3,37 @@
 /*                                                        :::      ::::::::   */
 /*   Cat.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: belam <belam@student.42.fr>                +#+  +:+       +#+        */
+/*   By: iel-amra <iel-amra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/12 13:40:08 by iel-amra          #+#    #+#             */
-/*   Updated: 2023/04/18 18:18:45 by belam            ###   ########.fr       */
+/*   Updated: 2023/04/25 10:08:04 by iel-amra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <Cat.hpp>
 
+using   std::cout;
+using   std::endl;
+
+
 Cat::Cat() : Animal()
 {
     type = "Cat";
     _brain = new Brain();
+    cout << "Newborn cat" << endl;
 }
 
 Cat::~Cat()
 {
     delete _brain;
+    cout << "An cat died" << endl;
 }
 
 Cat::Cat(const Cat & cat) : Animal(cat)
 {
     _brain = new Brain();
     *_brain = *cat._brain;
+    cout << "An cat has been cloned, oh no !" << endl;
 }
 
 void Cat::operator=(const Cat & cat)

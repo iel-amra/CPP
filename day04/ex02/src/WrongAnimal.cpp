@@ -12,16 +12,22 @@
 
 #include <WrongAnimal.hpp>
 
+using   std::cout;
+using   std::endl;
+
 WrongAnimal::WrongAnimal() : type("WrongAnimal")
-{   
+{
+        cout << "Newborn wrong animal" << endl;
 }
 
 WrongAnimal::~WrongAnimal()
 {
+    cout << "An wrong animal died" << endl;
 }
 
 WrongAnimal::WrongAnimal(const WrongAnimal & wrongAnimal) : type(wrongAnimal.type)
 {
+    cout << "An wrong animal has been cloned, oh no !" << endl;
 }
 
 void WrongAnimal::operator=(const WrongAnimal & wrongAnimal)
