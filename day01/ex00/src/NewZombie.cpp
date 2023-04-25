@@ -6,12 +6,11 @@
 /*   By: iel-amra <iel-amra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 15:04:39 by iel-amra          #+#    #+#             */
-/*   Updated: 2023/03/22 17:18:25 by iel-amra         ###   ########.fr       */
+/*   Updated: 2023/04/19 15:03:10 by iel-amra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 Zombie* newZombie(std::string name)
 {
-    Zombie  *kevin = new Zombie(name.c_str());
-    return (kevin);
+    return (new Zombie(name));
 }

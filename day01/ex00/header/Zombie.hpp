@@ -6,7 +6,7 @@
 /*   By: iel-amra <iel-amra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 12:59:08 by iel-amra          #+#    #+#             */
-/*   Updated: 2023/03/24 15:16:27 by iel-amra         ###   ########.fr       */
+/*   Updated: 2023/04/19 15:02:44 by iel-amra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ class Zombie
 {
 public:
     void announce();
-    Zombie(const char *name);
+    Zombie(const std::string &name);
     ~Zombie();
     
 private:

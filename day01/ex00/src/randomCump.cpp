@@ -6,12 +6,12 @@
 /*   By: iel-amra <iel-amra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 15:06:36 by iel-amra          #+#    #+#             */
-/*   Updated: 2023/03/22 17:18:22 by iel-amra         ###   ########.fr       */
+/*   Updated: 2023/04/19 15:04:30 by iel-amra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 void randomChump( std::string name )
 {
-    Zombie  kevin(name.c_str());
+    Zombie  kevin(name);
     kevin.announce();
 }
