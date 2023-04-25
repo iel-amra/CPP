@@ -6,37 +6,42 @@
 /*   By: iel-amra <iel-amra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 16:34:50 by iel-amra          #+#    #+#             */
-/*   Updated: 2023/04/19 14:39:13 by iel-amra         ###   ########.fr       */
+/*   Updated: 2023/04/25 10:44:20 by iel-amra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 void	Contact::registering()
 {
-	while (_data[0] == "" && !std::cin.eof()) 
+	do
 	{
-		std::cout << "Please enter your last name." << std::endl;
+		if (!std::cin.eof())
+			std::cout << "Please enter your last name." << std::endl;
 		std::getline (std::cin, _data[0]);
-	}
-	while (_data[1] == "" && !std::cin.eof()) 
+	} while (_data[0] == "" && !std::cin.eof());
+	do
 	{
-		std::cout << "Please enter your fisrt name." << std::endl;
+		if (!std::cin.eof())
+			std::cout << "Please enter your fisrt name." << std::endl;
 		std::getline (std::cin, _data[1]);
-	}
-	while (_data[2] == "" && !std::cin.eof()) 
+	} while (_data[1] == "" && !std::cin.eof());
+	do 
 	{
-		std::cout << "Please enter your nickname." << std::endl;
+		if (!std::cin.eof())
+			std::cout << "Please enter your nickname." << std::endl;
 		std::getline (std::cin, _data[2]);
-	}
-	while (_data[3] == "" && !std::cin.eof()) 
+	} while (_data[2] == "" && !std::cin.eof());
+	do 
 	{
-		std::cout << "Please enter your phone number." << std::endl;
+		if (!std::cin.eof())
+			std::cout << "Please enter your phone number." << std::endl;
 		std::getline (std::cin, _data[3]);
-	}
-	while (_data[4] == "" && !std::cin.eof()) 
+	} while (_data[3] == "" && !std::cin.eof());
+	do
 	{
-		std::cout << "Please enter your darkest secret." << std::endl;
+		if (!std::cin.eof())
+			std::cout << "Please enter your darkest secret." << std::endl;
 		std::getline (std::cin, _data[4]);
-	}
+	} while (_data[4] == "" && !std::cin.eof());
 }
 
 void	Contact::display()

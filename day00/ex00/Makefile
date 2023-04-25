@@ -15,10 +15,10 @@ print :
 	echo ${OBJ}
 
 ${NAME} : ${OBJ}
-	g++ $(FLAGS) $(OBJ) ${LIBFT} -o $(NAME)
+	c++ $(FLAGS) $(OBJ) ${LIBFT} -o $(NAME)
 
 ${OBJ_DIR}/%.o : ${SRC_DIR}/%.${EXT} | ${OBJ_DIR}
-	g++ $(FLAGS) -c $< -o $@
+	c++ $(FLAGS) -c $< -o $@
 
 FORCE :
 

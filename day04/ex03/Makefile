@@ -14,10 +14,10 @@ FLAGS = -Wall -Wextra -Werror
 all : ${NAME}
 
 ${NAME} : ${OBJ}
-	g++ $(FLAGS) $(OBJ) ${LIBFT} -o $(NAME)
+	c++ $(FLAGS) $(OBJ) ${LIBFT} -o $(NAME)
 
 ${OBJ_DIR}/%.o : ${SRC_DIR}/%.${EXT} ${HEADER} | ${OBJ_DIR}
-	g++ $(FLAGS) -I ${HEADER_DIR} -c $< -o $@
+	c++ $(FLAGS) -I ${HEADER_DIR} -c $< -o $@
 
 FORCE :
 

@@ -16,10 +16,10 @@ print :
 	echo ${OBJ}
 
 ${NAME} : ${OBJ}
-	g++ $(FLAGS) $(OBJ) ${LIBFT} -o $(NAME)
+	c++ $(FLAGS) $(OBJ) ${LIBFT} -o $(NAME)
 
 ${OBJ_DIR}/%.o : ${SRC_DIR}/%.${EXT} ${HEADER} ${H_HEADER} | ${OBJ_DIR}
-	g++ $(FLAGS) -include ${H_HEADER} -c $< -o $@
+	c++ $(FLAGS) -include ${H_HEADER} -c $< -o $@
 
 FORCE :
 
