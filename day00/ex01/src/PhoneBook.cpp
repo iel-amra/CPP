@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PhoneBook.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: iel-amra <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: iel-amra <iel-amra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 15:38:46 by iel-amra          #+#    #+#             */
-/*   Updated: 2023/03/18 17:06:27 by iel-amra         ###   ########.fr       */
+/*   Updated: 2023/04/25 17:10:39 by iel-amra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,16 +38,16 @@ void	PhoneBook::display()
 	while (i < _nb - 1)
 	{
 		std::cout << "||" << std::setw(10) << i 
-		<< "||" << std::setw(10) << _contacts[i].get_member(1).substr(0, 10) 
-		<< "||" << std::setw(10) << _contacts[i].get_member(0).substr(0, 10) 
-		<< "||" << std::setw(10) << _contacts[i].get_member(2).substr(0, 10) 
+		<< "||" << std::setw(10) << _contacts[i].get_member_spe(1).substr(0, 10) 
+		<< "||" << std::setw(10) << _contacts[i].get_member_spe(0).substr(0, 10) 
+		<< "||" << std::setw(10) << _contacts[i].get_member_spe(2).substr(0, 10) 
 		<< "||" << std::endl;
 		i++;
 	}
 	std::cout << "\\\\" << std::setw(10) << i 
-	<< "||" << std::setw(10) << _contacts[i].get_member(1).substr(0, 10) 
-	<< "||" << std::setw(10) << _contacts[i].get_member(0).substr(0, 10) 
-	<< "||" << std::setw(10) << _contacts[i].get_member(2).substr(0, 10) 
+	<< "||" << std::setw(10) << _contacts[i].get_member_spe(1).substr(0, 10) 
+	<< "||" << std::setw(10) << _contacts[i].get_member_spe(0).substr(0, 10) 
+	<< "||" << std::setw(10) << _contacts[i].get_member_spe(2).substr(0, 10) 
 	<< "//" << std::endl;
 }
 

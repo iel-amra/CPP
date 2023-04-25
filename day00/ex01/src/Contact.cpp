@@ -6,7 +6,7 @@
 /*   By: iel-amra <iel-amra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 16:34:50 by iel-amra          #+#    #+#             */
-/*   Updated: 2023/04/25 10:44:20 by iel-amra         ###   ########.fr       */
+/*   Updated: 2023/04/25 17:14:50 by iel-amra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,4 +56,12 @@ void	Contact::display()
 std::string	Contact::get_member(int i)
 {
 	return (_data[i]);
+}
+
+std::string	Contact::get_member_spe(const int i)
+{
+	std::string	ret = _data[i];
+	if (ret.length() > 10)
+		ret[9] = '.';
+	return (ret);
 }

@@ -7,7 +7,7 @@ SRC = $(SRC_FILES:%.${EXT}=${SRC_DIR}/%.${EXT})
 OBJ = $(SRC:${SRC_DIR}/%.${EXT}=${OBJ_DIR}/%.o)
 HEADER = header/PhoneBook.hpp header/Contact.hpp
 H_HEADER = header/principal.hpp
-FLAGS = -Wall -Wextra -Werror
+FLAGS = -Wall -Wextra -Werror -std=c++98
 
 all : ${NAME}
 
