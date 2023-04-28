@@ -6,7 +6,7 @@
 /*   By: iel-amra <iel-amra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 12:56:13 by iel-amra          #+#    #+#             */
-/*   Updated: 2023/04/04 17:24:59 by iel-amra         ###   ########.fr       */
+/*   Updated: 2023/04/25 16:41:34 by iel-amra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 int main( void ) {
     Fixed a;
-    Fixed const b( Fixed( 5.05f ) * Fixed( 2 ) );
+    Fixed const b( Fixed( 5.05f ) / Fixed( 0 ) );
     std::cout << a << std::endl;
     std::cout << ++a << std::endl;
     std::cout << a << std::endl;

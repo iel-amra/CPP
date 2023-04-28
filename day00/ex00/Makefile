@@ -6,7 +6,7 @@ SRC_FILES = megaphone.cpp
 SRC = $(SRC_FILES:%.${EXT}=${SRC_DIR}/%.${EXT})
 OBJ = $(SRC:${SRC_DIR}/%.${EXT}=${OBJ_DIR}/%.o)
 HEADER =
-FLAGS = -Wall -Wextra -Werror
+FLAGS = -Wall -Wextra -Werror -std=c++98
 
 all : ${NAME}
 

@@ -9,7 +9,7 @@ OBJ = $(SRC:${SRC_DIR}/%.${EXT}=${OBJ_DIR}/%.o)
 HEADER_DIR = header
 HEADER_FILES = Animal.hpp Dog.hpp Cat.hpp WrongAnimal.hpp WrongCat.hpp
 HEADER = $(HEADER_FILES:%.${H_EXT}=${HEADER_DIR}/%.${H_EXT})
-FLAGS = -Wall -Wextra -Werror
+FLAGS = -Wall -Wextra -Werror -std=c++98
 
 all : ${NAME}
 
