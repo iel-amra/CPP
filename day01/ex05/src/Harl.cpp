@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Harl.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: belam <belam@student.42.fr>                +#+  +:+       +#+        */
+/*   By: iel-amra <iel-amra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 21:45:21 by belam             #+#    #+#             */
-/*   Updated: 2023/03/30 23:32:37 by belam            ###   ########.fr       */
+/*   Updated: 2023/05/02 13:07:21 by iel-amra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ void Harl::complain( std::string level )
     int i ;
 
     i = 0;
-    while (level.compare(_keys[i]))
+    while (i <= 3 && level.compare(_keys[i]))
         i++;
     if (i < 0 || i > 3)
         return ;

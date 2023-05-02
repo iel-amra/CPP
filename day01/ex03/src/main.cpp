@@ -6,7 +6,7 @@
 /*   By: iel-amra <iel-amra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 12:56:13 by iel-amra          #+#    #+#             */
-/*   Updated: 2023/03/30 19:29:02 by iel-amra         ###   ########.fr       */
+/*   Updated: 2023/05/02 11:09:22 by iel-amra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,12 +35,12 @@ int main()
     {
         HumanB bob("Bob");
         bob.attack();
-        Weapon club = "a gun";
+        Weapon club = "gun";
         bob.setWeapon(club);
         bob.attack();
-        club.setType("a bazooka");
+        club.setType("bazooka");
         bob.attack();
-        club.setType("a nuclear wepaon");
+        club.setType("nuclear wepaon");
         bob.attack();
         club.setType("KAAAAAAAAAAAAAAAAAMMMMMMMMMMMEEEEEEEEEEEEEHHHHHHHHHAAAAAAAAAAAMEEEEEEEEHAAAAAAAAAAAAAAA");
         bob.attack();

@@ -6,7 +6,7 @@
 /*   By: iel-amra <iel-amra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 12:56:13 by iel-amra          #+#    #+#             */
-/*   Updated: 2023/03/30 16:12:18 by iel-amra         ###   ########.fr       */
+/*   Updated: 2023/05/02 11:28:29 by iel-amra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,11 @@ int main(int argc, char **argv)
     std::stringstream buffer;
     buffer << in.rdbuf();
     std::string str = buffer.str();
-    
+    if (!str[0])
+    {
+        std::cerr << "Invalid file" << std::endl;
+        return (1);
+    }
     pos = str.find(argv[2], 0);
     while (pos != -1)
     {
@@ -46,7 +50,7 @@ int main(int argc, char **argv)
         pos += strlen(argv[3]);
         pos = str.find(argv[2], pos);
     }
-    std::ofstream out(std::string(argv[1]).append(".replace"));
+    std::ofstream out(std::string(argv[1]).append(".replace").c_str());
     if (in.fail())
     {
         perror(std::string(argv[1]).append(".replace").c_str());

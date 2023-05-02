@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Harl.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: belam <belam@student.42.fr>                +#+  +:+       +#+        */
+/*   By: iel-amra <iel-amra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 21:45:21 by belam             #+#    #+#             */
-/*   Updated: 2023/03/30 23:34:55 by belam            ###   ########.fr       */
+/*   Updated: 2023/05/02 12:55:38 by iel-amra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,19 +75,19 @@ void Harl::filtered_complain(std::string level)
 {
     int i ;
     i = 0;
-    while (level.compare(_keys[i]))
+    while (i <= 3 && level.compare(_keys[i]))
         i++;
     switch (i)
     {
         case 0:
             complain(0);
-            [[fallthrough]];
+            __attribute__ ((fallthrough));
         case 1:
             complain(1);
-            [[fallthrough]];
+            __attribute__ ((fallthrough));
         case 2:
             complain(2);
-            [[fallthrough]];
+            __attribute__ ((fallthrough));
         case 3:
             complain(3);
             break;

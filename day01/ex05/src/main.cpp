@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: belam <belam@student.42.fr>                +#+  +:+       +#+        */
+/*   By: iel-amra <iel-amra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 12:56:13 by iel-amra          #+#    #+#             */
-/*   Updated: 2023/03/30 22:48:19 by belam            ###   ########.fr       */
+/*   Updated: 2023/05/02 13:07:30 by iel-amra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,5 +21,8 @@ int main()
     harl.complain("INFO");
     harl.complain("WARNING");
     harl.complain("ERROR");
+    harl.complain("WAR");
+    harl.complain("");
+    harl.complain("WARNIGANDMORE");
     return (0);
 }
