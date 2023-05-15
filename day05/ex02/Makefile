@@ -3,11 +3,20 @@ EXT = cpp
 H_EXT = hpp
 SRC_DIR = src
 OBJ_DIR = obj
-SRC_FILES = main.cpp Bureaucrat.cpp AForm.cpp
+SRC_FILES = main.cpp \
+Bureaucrat.cpp \
+AForm.cpp \
+PresidentialPardonForm.cpp \
+RobotomyRequestForm.cpp \
+ShrubberyCreationForm.cpp
 SRC = $(SRC_FILES:%.${EXT}=${SRC_DIR}/%.${EXT})
 OBJ = $(SRC:${SRC_DIR}/%.${EXT}=${OBJ_DIR}/%.o)
 HEADER_DIR = header
-HEADER_FILES = Bureaucrat.hpp AForm.hpp
+HEADER_FILES = Bureaucrat.hpp \
+AForm.hpp \
+PresidentialPardonForm.hpp \
+RobotomyRequestForm.hpp \
+ShrubberyCreationForm.hpp
 HEADER = $(HEADER_FILES:%.${H_EXT}=${HEADER_DIR}/%.${H_EXT})
 FLAGS = -Wall -Wextra -Werror -std=c++98
 

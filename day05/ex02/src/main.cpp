@@ -3,14 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: iel-amra <iel-amra@student.42.fr>          +#+  +:+       +#+        */
+/*   By: belam <belam@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 12:56:13 by iel-amra          #+#    #+#             */
-/*   Updated: 2023/05/15 17:20:56 by iel-amra         ###   ########.fr       */
+/*   Updated: 2023/05/15 20:00:54 by belam            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <Bureaucrat.hpp>
+#include <ShrubberyCreationForm.hpp>
 
 using std::cout;
 using std::endl;
@@ -22,6 +23,9 @@ int main()
 
     cout << Maire << endl;
     cout << AgentEdf << endl << endl;
+
+    ShrubberyCreationForm hey("HEEEYO");
+    hey.execute(Maire);
     
     return 0;
 }

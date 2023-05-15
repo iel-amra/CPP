@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   AForm.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: iel-amra <iel-amra@student.42.fr>          +#+  +:+       +#+        */
+/*   By: belam <belam@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/05 16:18:58 by iel-amra          #+#    #+#             */
-/*   Updated: 2023/05/15 17:43:07 by iel-amra         ###   ########.fr       */
+/*   Updated: 2023/05/15 19:21:38 by belam            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,13 @@ void AForm::beSigned(const Bureaucrat & bu)
     if (_gradeToSign < bu.getGrade())
         throw GradeTooLowException();
     _signed = true;
+}
+
+void AForm::tryExec(Bureaucrat const & executor) const
+{
+    if (_gradeToExecute < executor.getGrade())
+        throw GradeTooLowException();
+    execute(executor);
 }
 
 std::ostream & operator<<(std::ostream & os, const AForm & form)
