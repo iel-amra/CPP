@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: belam <belam@student.42.fr>                +#+  +:+       +#+        */
+/*   By: iel-amra <iel-amra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 12:56:13 by iel-amra          #+#    #+#             */
-/*   Updated: 2023/04/11 14:42:28 by belam            ###   ########.fr       */
+/*   Updated: 2023/05/03 12:26:51 by iel-amra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ static bool same_side(Point const  &a, Point const &b, Point const &c, Point con
 
 bool bsp(Point const a, Point const b, Point const c, Point const point)
 {
-    const Point triangle[3]{a, b, c};
+    const Point triangle[3] = {a, b, c};
     
     for (int i = 0; i < 3; i++)
     {

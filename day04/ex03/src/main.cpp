@@ -6,7 +6,7 @@
 /*   By: iel-amra <iel-amra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 12:56:13 by iel-amra          #+#    #+#             */
-/*   Updated: 2023/04/19 12:44:26 by iel-amra         ###   ########.fr       */
+/*   Updated: 2023/05/05 15:19:13 by iel-amra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,8 @@ int main()
     me->equip(tmp);
     IMateriaSource* copy = new MateriaSource(*(MateriaSource *) src);
     tmp = copy->createMateria("cure");
+    me->equip(tmp);
+    me->unequip(1);
     me->equip(tmp);
     ICharacter* bob = new Character("bob");
     me->use(0, *bob);

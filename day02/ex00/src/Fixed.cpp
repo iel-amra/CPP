@@ -6,7 +6,7 @@
 /*   By: iel-amra <iel-amra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/03 14:11:09 by iel-amra          #+#    #+#             */
-/*   Updated: 2023/04/04 14:53:13 by iel-amra         ###   ########.fr       */
+/*   Updated: 2023/05/03 11:18:31 by iel-amra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ Fixed::Fixed() : _RawBits(0)
 
 Fixed::~Fixed()
 {
-    std::cout << "Default constructor called" << std::endl;
+    std::cout << "Default destructor called" << std::endl;
 }
 
 Fixed::Fixed(const Fixed &nb) : _RawBits()

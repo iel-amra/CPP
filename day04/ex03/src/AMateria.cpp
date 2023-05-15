@@ -6,7 +6,7 @@
 /*   By: iel-amra <iel-amra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/18 15:13:42 by iel-amra          #+#    #+#             */
-/*   Updated: 2023/04/18 16:40:09 by iel-amra         ###   ########.fr       */
+/*   Updated: 2023/05/05 13:04:26 by iel-amra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,8 @@ AMateria::AMateria() : _type()
 {
 }
 
-AMateria::AMateria(const AMateria &copy) : _type()
+AMateria::AMateria(const AMateria &copy) : _type(copy._type)
 {
-	(void) copy;
 }
 
 

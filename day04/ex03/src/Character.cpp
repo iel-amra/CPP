@@ -6,7 +6,7 @@
 /*   By: iel-amra <iel-amra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/18 22:01:44 by iel-amra          #+#    #+#             */
-/*   Updated: 2023/04/19 10:13:21 by iel-amra         ###   ########.fr       */
+/*   Updated: 2023/05/05 13:58:05 by iel-amra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,6 @@ Character::Character( const Character & src ) :  _name(src._name)
 		_materia[i] = NULL;
 	*this = src;
 }
-
-
 
 Character::~Character()
 {

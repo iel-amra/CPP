@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ScavTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: belam <belam@student.42.fr>                +#+  +:+       +#+        */
+/*   By: iel-amra <iel-amra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/10 17:58:06 by belam             #+#    #+#             */
-/*   Updated: 2023/04/10 18:54:06 by belam            ###   ########.fr       */
+/*   Updated: 2023/05/04 12:19:37 by iel-amra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ ScavTrap::ScavTrap(const ScavTrap &a) : ClapTrap(a)
 {
     std::cout << "ScavTrap copy constuctor called." << std::endl;
 }
+
 void ScavTrap::operator=(const ScavTrap &a)
 {
     _name = a._name;
