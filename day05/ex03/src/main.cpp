@@ -14,36 +14,26 @@
 #include <ShrubberyCreationForm.hpp>
 #include <PresidentialPardonForm.hpp>
 #include <RobotomyRequestForm.hpp>
+#include <Intern.hpp>
 
 using std::cout;
 using std::endl;
 
 int main()
 {
-    Bureaucrat Maire("Maire", 2);
-    Bureaucrat AgentEdf("Agend EDF", 130);
+    Bureaucrat  Maire("Maire", 2);
+    Intern      Jackson;
+    AForm       *form;
 
     cout << Maire << endl;
-    cout << AgentEdf << endl << endl;
 
-    ShrubberyCreationForm hey("HEEEYO");
-    PresidentialPardonForm borgir("Borgir");
-    RobotomyRequestForm blender("Blender");
-    Maire.executeForm(hey);
-    Maire.executeForm(borgir);
-    cout << std::endl;
-    Maire.executeForm(blender);
-    Maire.executeForm(blender);
-    Maire.executeForm(blender);
-    Maire.executeForm(blender);
-    Maire.executeForm(blender);
-    Maire.executeForm(blender);
-    Maire.executeForm(blender);
-    Maire.executeForm(blender);
-    Maire.executeForm(blender);
-    Maire.executeForm(blender);
-    Maire.executeForm(blender);
-    cout << std::endl;
-    AgentEdf.executeForm(borgir);
+    form = Jackson.makeForm("shrubbery creation", "Forest");
+    Maire.executeForm(*form);
+    form = Jackson.makeForm("robotomy request", "Bender");
+    Maire.executeForm(*form);
+    form = Jackson.makeForm("presidential pardon", "Borgir");
+    Maire.executeForm(*form);
+    form = Jackson.makeForm("presidential", "Bob");
+    cout << form << endl;
     return 0;
 }

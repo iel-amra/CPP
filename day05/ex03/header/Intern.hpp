@@ -24,13 +24,15 @@ public:
     Intern(const Intern & cpy);
     ~Intern();
     Intern &operator=(const Intern & rhs);
-    
-    AForm *getPardonForm(const std::string & target) const;
-    AForm *getShrubberyForm(const std::string & target) const;
-    AForm *getRobotForm(const std::string & target) const;
+    AForm *makeForm(const std::string & type, const std::string & target) const;
 
 private:
-    AForm * (Intern::*_creator[3])(const std::string &);
+    AForm *_getPardonForm(const std::string & target) const;
+    AForm *_getShrubberyForm(const std::string & target) const;
+    AForm *_getRobotForm(const std::string & target) const;
+    void _init();
+    AForm * (Intern::*_creator[3])(const std::string &) const;
+    std::string _map[3];
 };
 
 #endif
