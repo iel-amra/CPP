@@ -3,11 +3,11 @@ EXT = cpp
 H_EXT = hpp
 SRC_DIR = src
 OBJ_DIR = obj
-SRC_FILES = main.cpp
+SRC_FILES = main.cpp ScalarConverter.cpp
 SRC = $(SRC_FILES:%.${EXT}=${SRC_DIR}/%.${EXT})
 OBJ = $(SRC:${SRC_DIR}/%.${EXT}=${OBJ_DIR}/%.o)
 HEADER_DIR = header
-HEADER_FILES = 
+HEADER_FILES = ScalarConverter.hpp
 HEADER = $(HEADER_FILES:%.${H_EXT}=${HEADER_DIR}/%.${H_EXT})
 FLAGS = -Wall -Wextra -Werror -std=c++98
 
@@ -29,7 +29,7 @@ clean :
 
 fclean : 
 	rm -f ${NAME}
-	rm -f ${OBJ_DIR}
+	rm -rf ${OBJ_DIR}
 
 re : fclean all
 

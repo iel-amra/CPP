@@ -2,6 +2,17 @@
 # define SCALARCONVERTER_HPP
 
 # include <string>
+# include <cctype>
+# include <cerrno>
+# include <climits>
+# include <cfloat>
+# include <cstdlib>
+# include <iostream>
+# include <iomanip>
+
+# define NOT_DISPLAYABLE 1<<0
+# define OVERFLOW 1<<1
+# define IMPOSSIBLE 1<<2
 
 class ScalarConverter
 {
@@ -11,9 +22,11 @@ public:
     ~ScalarConverter();
     ScalarConverter operator=(const ScalarConverter & rhs);
 
-    static void convert(const std::string & str);
+    static int convert(const std::string & str);
+    static void display();
 
 private:
+    static bool _displayable(char flag);
     static void _convertChar(const std::string & str);
     static void _convertInt(const std::string & str);
     static void _convertFloat(const std::string & str);
@@ -27,6 +40,7 @@ private:
     static int      _int;
     static float    _float;
     static double   _double;
+    static char     _flags[4];
 };
 
 #endif
