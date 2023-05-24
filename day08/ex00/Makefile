@@ -6,7 +6,7 @@ SRC_FILES = main.cpp
 SRC = $(SRC_FILES:%.${EXT}=${SRC_DIR}/%.${EXT})
 OBJ = $(SRC:${SRC_DIR}/%.${EXT}=${OBJ_DIR}/%.o)
 HEADER_DIR = header
-HEADER_FILES = Array.hpp Array.tpp
+HEADER_FILES = easyfind.hpp easyfind.tpp
 HEADER = $(HEADER_FILES:%=${HEADER_DIR}/%)
 FLAGS = -Wall -Wextra -Werror -std=c++98
 
