@@ -6,7 +6,7 @@
 /*   By: iel-amra <iel-amra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 13:06:37 by iel-amra          #+#    #+#             */
-/*   Updated: 2023/05/25 17:54:25 by iel-amra         ###   ########.fr       */
+/*   Updated: 2023/05/26 16:28:15 by iel-amra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,9 @@ public:
     MutantStack(const MutantStack & ref);
     MutantStack operator=(const MutantStack & rhs);
 
-private:
-    
-}
+    T &operator[](unsigned int);
+};
+
+#include <MutantStack.tpp>
 
 #endif

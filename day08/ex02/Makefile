@@ -2,11 +2,11 @@ NAME = Test
 EXT = cpp
 SRC_DIR = src
 OBJ_DIR = obj
-SRC_FILES = main.cpp Span.cpp
+SRC_FILES = main.cpp
 SRC = $(SRC_FILES:%.${EXT}=${SRC_DIR}/%.${EXT})
 OBJ = $(SRC:${SRC_DIR}/%.${EXT}=${OBJ_DIR}/%.o)
 HEADER_DIR = header
-HEADER_FILES = Span.hpp
+HEADER_FILES = MutantStack.hpp MutantStack.tpp
 HEADER = $(HEADER_FILES:%=${HEADER_DIR}/%)
 FLAGS = -Wall -Wextra -Werror -std=c++98
 
