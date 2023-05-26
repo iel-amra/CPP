@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ScalarConverter.cpp                                :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: belam <belam@student.42.fr>                +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/05/22 10:25:08 by belam             #+#    #+#             */
+/*   Updated: 2023/05/22 10:25:09 by belam            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <ScalarConverter.hpp>
 
 using std::isprint;
@@ -10,26 +22,6 @@ int      ScalarConverter::_int;
 float    ScalarConverter::_float;
 double   ScalarConverter::_double;
 char     ScalarConverter::_flags[4];
-
-ScalarConverter::ScalarConverter()
-{
-}
-
-ScalarConverter::ScalarConverter(const ScalarConverter & ref)
-{
-    (void) ref;
-}
-
-ScalarConverter::~ScalarConverter()
-{
-}
-
-ScalarConverter ScalarConverter::operator=(const ScalarConverter & rhs)
-{
-    (void) rhs;
-    return (*this);
-}
-
 
 int ScalarConverter::convert(const std::string & str)
 {
@@ -60,7 +52,7 @@ void ScalarConverter::display()
 
     cout << "char : ";
     if (_displayable(_flags[i++]))
-        cout << _char << endl;
+        cout << '\'' << _char << '\'' << endl;
     cout << "int : ";
     if (_displayable(_flags[i++]))
         cout << _int << endl;
@@ -70,6 +62,26 @@ void ScalarConverter::display()
     cout << "double : ";
     if (_displayable(_flags[i++]))
         cout << std::fixed << std::setprecision(1) << _double << endl;
+}
+
+
+ScalarConverter::ScalarConverter()
+{
+}
+
+ScalarConverter::ScalarConverter(const ScalarConverter & ref)
+{
+    (void) ref;
+}
+
+ScalarConverter::~ScalarConverter()
+{
+}
+
+ScalarConverter ScalarConverter::operator=(const ScalarConverter & rhs)
+{
+    (void) rhs;
+    return (*this);
 }
 
 bool ScalarConverter::_displayable(char flag)

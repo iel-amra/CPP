@@ -1,13 +1,13 @@
-NAME = convert
+NAME = Test
 EXT = cpp
 H_EXT = hpp
 SRC_DIR = src
 OBJ_DIR = obj
-SRC_FILES = main.cpp ScalarConverter.cpp
+SRC_FILES = main.cpp Serializer.cpp
 SRC = $(SRC_FILES:%.${EXT}=${SRC_DIR}/%.${EXT})
 OBJ = $(SRC:${SRC_DIR}/%.${EXT}=${OBJ_DIR}/%.o)
 HEADER_DIR = header
-HEADER_FILES = ScalarConverter.hpp
+HEADER_FILES = Serializer.hpp
 HEADER = $(HEADER_FILES:%.${H_EXT}=${HEADER_DIR}/%.${H_EXT})
 FLAGS = -Wall -Wextra -Werror -std=c++98
 

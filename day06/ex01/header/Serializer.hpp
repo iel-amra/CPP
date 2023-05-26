@@ -1,26 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Serializer.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: belam <belam@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/22 10:25:03 by belam             #+#    #+#             */
-/*   Updated: 2023/05/22 10:25:04 by belam            ###   ########.fr       */
+/*   Created: 2023/05/22 11:28:09 by belam             #+#    #+#             */
+/*   Updated: 2023/05/22 11:45:48 by belam            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <ScalarConverter.hpp>
+#ifndef SERIALIZER_HPP
+# define SERIALIZER_HPP
 
-int main(int argc, char **argv)
+# include <stdint.h>
+
+struct Data
 {
-    (void) argc;
-    if (argc != 2)
-    {
-        std::cout << "Bad number of arguments" << std::endl;
-        return (0);
-    }
-    if (!ScalarConverter::convert(argv[1]))
-        ScalarConverter::display();
-    return (0);
-}
+    int     a;
+    double  b;
+};
+
+class Serializer
+{
+public:
+    static uintptr_t serialize(Data* ptr);
+    static Data* deserialize(uintptr_t raw);
+
+private:
+    Serializer();
+    ~Serializer();
+    Serializer(const Serializer &ref);
+    Serializer &operator=(const Serializer &rhs);
+};
+
+#endif

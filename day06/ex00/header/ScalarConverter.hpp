@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ScalarConverter.hpp                                :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: belam <belam@student.42.fr>                +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/05/22 10:24:57 by belam             #+#    #+#             */
+/*   Updated: 2023/05/22 10:24:58 by belam            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef SCALARCONVERTER_HPP
 # define SCALARCONVERTER_HPP
 
@@ -17,15 +29,15 @@
 class ScalarConverter
 {
 public:
+    static int convert(const std::string & str);
+    static void display();
+
+private:
     ScalarConverter();
     ScalarConverter(const ScalarConverter & ref);
     ~ScalarConverter();
     ScalarConverter operator=(const ScalarConverter & rhs);
 
-    static int convert(const std::string & str);
-    static void display();
-
-private:
     static bool _displayable(char flag);
     static void _convertChar(const std::string & str);
     static void _convertInt(const std::string & str);

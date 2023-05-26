@@ -5,22 +5,24 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: belam <belam@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/22 10:25:03 by belam             #+#    #+#             */
-/*   Updated: 2023/05/22 10:25:04 by belam            ###   ########.fr       */
+/*   Created: 2023/05/22 10:25:13 by belam             #+#    #+#             */
+/*   Updated: 2023/05/22 11:46:13 by belam            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <ScalarConverter.hpp>
+#include <Serializer.hpp>
+#include <iostream>
 
-int main(int argc, char **argv)
+using std::cout;
+using std::endl;
+
+int main()
 {
-    (void) argc;
-    if (argc != 2)
-    {
-        std::cout << "Bad number of arguments" << std::endl;
-        return (0);
-    }
-    if (!ScalarConverter::convert(argv[1]))
-        ScalarConverter::display();
+    Data    someData;
+    
+    cout << "Data address            :" << &someData << endl
+         << "Data address serialized :" 
+         << Serializer::deserialize(Serializer::serialize(&someData)) 
+         << endl;
     return (0);
 }
