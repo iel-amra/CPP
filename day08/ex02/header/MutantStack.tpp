@@ -3,17 +3,79 @@
 /*                                                        :::      ::::::::   */
 /*   MutantStack.tpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: iel-amra <iel-amra@student.42.fr>          +#+  +:+       +#+        */
+/*   By: belam <belam@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 16:19:18 by iel-amra          #+#    #+#             */
-/*   Updated: 2023/05/29 14:57:41 by iel-amra         ###   ########.fr       */
+/*   Updated: 2023/10/06 16:02:00 by belam            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 template<typename T>
-MutantStack<T>::MutantStack() : std::stack<T>()
+MutantStack<T>::iterator::iterator()
+{
+    _i = 0;
+}
+
+MutantStack<T>::iterator::iterator(int i)
 {
     
+}
+
+template<typename T>
+MutantStack<T>::iterator::~iterator()
+{
+    
+}
+
+
+template<typename T>
+MutantStack<T>::iterator::iterator(const iterator & ref)
+{
+    *this = ref;
+}
+
+template<typename T>
+iterator &operator=(const iterator & rhs)
+{
+    _i = rhs.i;
+}
+
+template<typename T>
+T &operator*()
+{
+    return (*_stack)[_i];
+}
+
+template<typename T>
+bool operator!=(const iterator & rhs)
+{
+    return (!(_i == rhs))
+}
+
+template<typename T>
+bool operator==(const iterator & rhs)
+{
+    return (_stack == rhs.stack && _i == rhs._i);
+}
+
+template<typename T> 
+iterator &operator++()
+{
+    _i++;
+    return (*this);
+}
+
+template<typename T> 
+iterator operator++()
+{
+    _i++;
+    return (iterator(i - 1));
+}
+
+template<typename T>
+MutantStack<T>::MutantStack() : std::stack<T>()
+{
+
 }
 
 template<typename T>
@@ -28,7 +90,7 @@ MutantStack<T>::MutantStack(const MutantStack & ref) : std::stack<T>(ref)
 }
 
 template<typename T>
-MutantStack<T> MutantStack<T>::operator=(const MutantStack<T> & rhs)
+MutantStack<T> &MutantStack<T>::operator=(const MutantStack<T> & rhs)
 {
     *static_cast<std::stack<T>*>(this) = rhs;
     return (*this);
