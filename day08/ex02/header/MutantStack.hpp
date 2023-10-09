@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   MutantStack.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: belam <belam@student.42.fr>                +#+  +:+       +#+        */
+/*   By: iel-amra <iel-amra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 13:06:37 by iel-amra          #+#    #+#             */
-/*   Updated: 2023/10/06 15:58:09 by belam            ###   ########.fr       */
+/*   Updated: 2023/10/09 15:08:53 by iel-amra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ public:
     public:
         iterator();
         iterator(int i);
+        iterator(int i, MutantStack *stack);
         ~iterator();
         iterator(const iterator & ref);
         iterator &operator=(const iterator & rhs);

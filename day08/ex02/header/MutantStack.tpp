@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   MutantStack.tpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: belam <belam@student.42.fr>                +#+  +:+       +#+        */
+/*   By: iel-amra <iel-amra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 16:19:18 by iel-amra          #+#    #+#             */
-/*   Updated: 2023/10/06 16:02:00 by belam            ###   ########.fr       */
+/*   Updated: 2023/10/09 15:10:15 by iel-amra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,15 +16,19 @@ MutantStack<T>::iterator::iterator()
     _i = 0;
 }
 
-MutantStack<T>::iterator::iterator(int i)
+template<typename T>
+MutantStack<T>::iterator::iterator(int i) : _i(i)
 {
-    
+}
+
+template<typename T>
+MutantStack<T>::iterator::iterator(int i, MutantStack *stack) : _stack(stack)
+{
 }
 
 template<typename T>
 MutantStack<T>::iterator::~iterator()
 {
-    
 }
 
 
@@ -69,7 +73,7 @@ template<typename T>
 iterator operator++()
 {
     _i++;
-    return (iterator(i - 1));
+    return (iterator(i + 1));
 }
 
 template<typename T>
