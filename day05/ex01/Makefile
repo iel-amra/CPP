@@ -3,11 +3,11 @@ EXT = cpp
 H_EXT = hpp
 SRC_DIR = src
 OBJ_DIR = obj
-SRC_FILES = main.cpp Bureaucrat.cpp
+SRC_FILES = main.cpp Bureaucrat.cpp Form.cpp
 SRC = $(SRC_FILES:%.${EXT}=${SRC_DIR}/%.${EXT})
 OBJ = $(SRC:${SRC_DIR}/%.${EXT}=${OBJ_DIR}/%.o)
 HEADER_DIR = header
-HEADER_FILES = Bureaucrat.hpp
+HEADER_FILES = Bureaucrat.hpp Form.hpp
 HEADER = $(HEADER_FILES:%.${H_EXT}=${HEADER_DIR}/%.${H_EXT})
 FLAGS = -Wall -Wextra -Werror -std=c++98
 

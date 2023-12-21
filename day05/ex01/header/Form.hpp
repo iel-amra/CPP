@@ -6,7 +6,7 @@
 /*   By: iel-amra <iel-amra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/05 16:19:04 by iel-amra          #+#    #+#             */
-/*   Updated: 2023/05/09 13:44:29 by iel-amra         ###   ########.fr       */
+/*   Updated: 2023/11/13 13:00:26 by iel-amra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ public:
     unsigned int getGradeToSign() const;
     unsigned int getGradeToExecute() const;
 
-    void beSigned(const Bureaucrat & bu);
+    void beSigned(const Bureaucrat & bu) throw(...);
 
 private:
     const std::string           _name;

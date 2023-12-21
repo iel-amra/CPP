@@ -3,16 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   RobotomyRequestForm.hpp                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: belam <belam@student.42.fr>                +#+  +:+       +#+        */
+/*   By: iel-amra <iel-amra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/15 17:26:14 by iel-amra          #+#    #+#             */
-/*   Updated: 2023/05/15 19:43:36 by belam            ###   ########.fr       */
+/*   Updated: 2023/12/21 14:25:56 by iel-amra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef ROBOTOMYREQUESTFORM
 # define ROBOTOMYREQUESTFORM
 # include <AForm.hpp>
+# include <cstdlib>
 
 class RobotomyRequestForm : public AForm
 {

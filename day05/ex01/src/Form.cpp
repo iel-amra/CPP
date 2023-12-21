@@ -6,7 +6,7 @@
 /*   By: iel-amra <iel-amra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/05 16:18:58 by iel-amra          #+#    #+#             */
-/*   Updated: 2023/05/15 17:08:42 by iel-amra         ###   ########.fr       */
+/*   Updated: 2023/11/13 13:00:39 by iel-amra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ unsigned int Form::getGradeToExecute() const
     return(_gradeToExecute);
 }
 
-void Form::beSigned(const Bureaucrat & bu)
+void Form::beSigned(const Bureaucrat & bu) throw(...)
 {
     if (_gradeToSign < bu.getGrade())
         throw GradeTooLowException();
