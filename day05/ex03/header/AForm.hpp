@@ -35,7 +35,7 @@ public:
     };
 
     AForm();
-    ~AForm();
+    virtual ~AForm();
     AForm(const AForm & ref);
     AForm &operator=(const AForm & rhs);
 

@@ -6,7 +6,7 @@
 /*   By: iel-amra <iel-amra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 12:56:13 by iel-amra          #+#    #+#             */
-/*   Updated: 2023/05/17 15:21:44 by iel-amra         ###   ########.fr       */
+/*   Updated: 2023/12/21 14:42:39 by iel-amra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,11 +29,15 @@ int main()
 
     form = Jackson.makeForm("shrubbery creation", "Forest");
     Maire.executeForm(*form);
+    delete form;
     form = Jackson.makeForm("robotomy request", "Bender");
     Maire.executeForm(*form);
+    delete form;
     form = Jackson.makeForm("presidential pardon", "Borgir");
     Maire.executeForm(*form);
+    delete form;
     form = Jackson.makeForm("presidential", "Bob");
     cout << form << endl;
+
     return 0;
 }

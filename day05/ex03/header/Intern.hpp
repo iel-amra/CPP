@@ -6,7 +6,7 @@
 /*   By: iel-amra <iel-amra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/17 16:09:29 by iel-amra          #+#    #+#             */
-/*   Updated: 2023/05/17 18:35:03 by iel-amra         ###   ########.fr       */
+/*   Updated: 2023/11/14 13:45:49 by iel-amra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ private:
     AForm *_getShrubberyForm(const std::string & target) const;
     AForm *_getRobotForm(const std::string & target) const;
     void _init();
-    AForm * (Intern::*_creator[3])(const std::string &) const;
+    AForm * (Intern::*_creator[4])(const std::string &) const;
     std::string _map[3];
 };
 
