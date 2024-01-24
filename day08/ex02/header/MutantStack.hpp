@@ -6,7 +6,7 @@
 /*   By: iel-amra <iel-amra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 13:06:37 by iel-amra          #+#    #+#             */
-/*   Updated: 2023/10/09 15:08:53 by iel-amra         ###   ########.fr       */
+/*   Updated: 2024/01/24 15:59:09 by iel-amra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ public:
         T &operator*();
         bool operator!=(const iterator & rhs);
         bool operator==(const iterator & rhs);
-        iterator &operator++(); // check syntax
+        iterator &operator++(int); // check syntax
         iterator operator++();
     private:
         int _i;

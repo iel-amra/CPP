@@ -6,7 +6,7 @@
 /*   By: iel-amra <iel-amra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 16:19:18 by iel-amra          #+#    #+#             */
-/*   Updated: 2023/10/09 15:10:15 by iel-amra         ###   ########.fr       */
+/*   Updated: 2024/01/24 15:59:23 by iel-amra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,38 +39,38 @@ MutantStack<T>::iterator::iterator(const iterator & ref)
 }
 
 template<typename T>
-iterator &operator=(const iterator & rhs)
+MutantStack<T>::iterator &MutantStack<T>::iterator::operator=(const iterator & rhs)
 {
     _i = rhs.i;
 }
 
 template<typename T>
-T &operator*()
+T &MutantStack<T>::iterator::operator*()
 {
     return (*_stack)[_i];
 }
 
 template<typename T>
-bool operator!=(const iterator & rhs)
+bool MutantStack<T>::iterator::operator!=(const iterator & rhs)
 {
-    return (!(_i == rhs))
+    return (!(_i == rhs));
 }
 
 template<typename T>
-bool operator==(const iterator & rhs)
+bool MutantStack<T>::iterator::operator==(const iterator & rhs)
 {
     return (_stack == rhs.stack && _i == rhs._i);
 }
 
 template<typename T> 
-iterator &operator++()
+MutantStack<T>::iterator &operator++()
 {
     _i++;
     return (*this);
 }
 
 template<typename T> 
-iterator operator++()
+MutantStack<T>::iterator operator++()
 {
     _i++;
     return (iterator(i + 1));
