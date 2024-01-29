@@ -6,11 +6,13 @@
 /*   By: iel-amra <iel-amra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/17 16:09:12 by iel-amra          #+#    #+#             */
-/*   Updated: 2023/05/17 18:34:54 by iel-amra         ###   ########.fr       */
+/*   Updated: 2023/12/21 16:02:32 by iel-amra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <Intern.hpp>
+using std::cout;
+using std::endl;
 
 Intern::Intern()
 {
@@ -40,7 +42,11 @@ AForm *Intern::makeForm(const std::string & type, const std::string & target) co
     while (i < 3 && _map[i] != type)
         i++;
     if (i == 3)
+    {
+        cout << "Intern coudnt create " << type  << endl;
         return (NULL);
+    }
+    cout << "Intern creates " << type  << endl;
     return ((this->*_creator[i])(target));
 }
 

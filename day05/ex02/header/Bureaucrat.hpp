@@ -6,7 +6,7 @@
 /*   By: iel-amra <iel-amra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 12:39:51 by iel-amra          #+#    #+#             */
-/*   Updated: 2023/05/15 17:42:14 by iel-amra         ###   ########.fr       */
+/*   Updated: 2023/12/21 13:58:30 by iel-amra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@ public:
     void promote();
     void demote();
     void sign(AForm & form) const;
+    void executeForm(AForm const & form);
 
 private:
     const std::string   _name;

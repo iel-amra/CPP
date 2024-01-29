@@ -3,14 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: belam <belam@student.42.fr>                +#+  +:+       +#+        */
+/*   By: iel-amra <iel-amra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 12:56:13 by iel-amra          #+#    #+#             */
-/*   Updated: 2023/05/03 20:05:16 by belam            ###   ########.fr       */
+/*   Updated: 2023/12/21 12:52:38 by iel-amra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <Bureaucrat.hpp>
+#include <Form.hpp>
 
 using std::cout;
 using std::endl;
@@ -44,12 +45,25 @@ int main()
     {
         cout << e.what() << endl;
     }
-    
+
     Bureaucrat Zeus("Zeus"); 
     Zeus = Kratos;
     cout << Zeus << endl;
     Zeus = Bureaucrat();
     cout << Zeus << endl;
+    Form thisform("Bob", 145, 145);
+    try
+    {
+        thisform.beSigned(Bureaucrat());
+    }
+    catch (std::exception & e)
+    {
+        cout << e.what() << endl;
+    }
+    cout << thisform << endl;
+    Bureaucrat("Jerem", 12).sign(thisform);
+    Zeus.sign(thisform);
+    cout << thisform << endl;
     
     return 0;
 }

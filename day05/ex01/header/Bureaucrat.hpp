@@ -3,17 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: belam <belam@student.42.fr>                +#+  +:+       +#+        */
+/*   By: iel-amra <iel-amra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 12:39:51 by iel-amra          #+#    #+#             */
-/*   Updated: 2023/05/03 19:59:17 by belam            ###   ########.fr       */
+/*   Updated: 2023/12/21 13:21:14 by iel-amra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef BUREAUCRAT_HPP
 # define BUREAUCRAT_HPP
 
+#include <Form.hpp>
 #include <iostream>
+
+class Form;
 
 class Bureaucrat
 {
@@ -33,6 +36,7 @@ public:
 
     Bureaucrat();
     Bureaucrat(const std::string & name);
+    Bureaucrat(const std::string & name, const unsigned int grade);
     ~Bureaucrat();
     Bureaucrat(const Bureaucrat & ref);
     Bureaucrat &operator=(const Bureaucrat & rhs);
@@ -40,6 +44,7 @@ public:
     unsigned int getGrade() const;
     void promote();
     void demote();
+    void sign(Form & form) const;
 
 private:
     const std::string   _name;

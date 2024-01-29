@@ -50,7 +50,6 @@ public:
     void tryExec(Bureaucrat const & executor) const;
 
 private:
-
     virtual void execute(Bureaucrat const & executor) const = 0;
     const std::string           _name;
     bool                        _signed;

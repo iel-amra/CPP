@@ -6,7 +6,7 @@
 /*   By: iel-amra <iel-amra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 12:39:54 by iel-amra          #+#    #+#             */
-/*   Updated: 2023/05/17 15:24:11 by iel-amra         ###   ########.fr       */
+/*   Updated: 2023/12/21 12:57:23 by iel-amra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,6 +87,7 @@ void Bureaucrat::sign(AForm & form) const
     try
     {
         form.beSigned(*this);
+        std::cout << _name << " signed " << form.getName() << std::endl;
     }
     catch (AForm::GradeTooLowException &)
     {
@@ -107,3 +108,4 @@ void Bureaucrat::executeForm(AForm const & form)
         cout << _name << " failed to execute " << form.getName() << "." << endl;
     }
 }
+

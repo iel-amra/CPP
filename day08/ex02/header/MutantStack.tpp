@@ -6,7 +6,7 @@
 /*   By: belam <belam@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 16:19:18 by iel-amra          #+#    #+#             */
-/*   Updated: 2023/10/09 21:10:41 by belam            ###   ########.fr       */
+/*   Updated: 2024/01/29 09:30:08 by belam            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@ MutantStack<T>::iterator::iterator(unsigned int i, MutantStack<T> *stack) : _i(i
 template<typename T>
 MutantStack<T>::iterator::~iterator()
 {
-    
 }
 
 

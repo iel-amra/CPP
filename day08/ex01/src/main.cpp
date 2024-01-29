@@ -10,7 +10,7 @@ using std::endl;
 int main(int argc, char **argv)
 {
     int nb;
-    if (argc > 3)
+    if (argc > 2)
     {
         cout << "Stop it, you dumbass. I know you're name, Ihab, I know where you live !" << endl;
         return (1);
@@ -19,6 +19,11 @@ int main(int argc, char **argv)
         nb = 10000;
     else
         nb = strtol(argv[1], NULL, 10);
+    if (nb > 1000000)
+    {
+        cout << "Stop it, you dumbass. I know you're name, Ihab, I know where you live !" << endl;
+        return (1);
+    }
     Span sp = Span(nb);
     std::vector<int> filler(nb);
     std::srand(time(NULL));
@@ -28,6 +33,14 @@ int main(int argc, char **argv)
     {
         std::cout << sp.shortestSpan() << std::endl;
         std::cout << sp.longestSpan() << std::endl;
+    }
+    catch (std::exception & e)
+    {
+        cout << e.what() << endl; 
+    }
+    try
+    {
+        sp.addNumber(3);
     }
     catch (std::exception & e)
     {

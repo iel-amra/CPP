@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: belam <belam@student.42.fr>                +#+  +:+       +#+        */
+/*   By: iel-amra <iel-amra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 12:39:51 by iel-amra          #+#    #+#             */
-/*   Updated: 2023/05/03 19:59:17 by belam            ###   ########.fr       */
+/*   Updated: 2023/12/21 13:21:40 by iel-amra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ public:
     };
 
     Bureaucrat();
-    Bureaucrat(const std::string & name);
+    Bureaucrat(const std::string & name, const unsigned int grade);
     ~Bureaucrat();
     Bureaucrat(const Bureaucrat & ref);
     Bureaucrat &operator=(const Bureaucrat & rhs);
