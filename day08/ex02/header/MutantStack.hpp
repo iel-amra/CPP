@@ -6,7 +6,7 @@
 /*   By: belam <belam@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 13:06:37 by iel-amra          #+#    #+#             */
-/*   Updated: 2024/01/29 09:30:20 by belam            ###   ########.fr       */
+/*   Updated: 2024/01/29 12:25:51 by belam            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,16 @@ public:
     public:
         iterator();
         iterator(unsigned int i, MutantStack *stack);
+        ~iterator();
+        iterator(const iterator & ref);
+        iterator &operator=(const iterator & rhs);
+        T &operator*();
         bool operator!=(const iterator & rhs);
         bool operator==(const iterator & rhs);
-        iterator &operator++(); // check syntax
+        iterator &operator++();
         iterator operator++(int);
+        iterator &operator--(); 
+        iterator operator--(int);
     private:
         unsigned int _i;
         MutantStack *_stack;

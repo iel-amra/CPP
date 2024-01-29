@@ -6,9 +6,10 @@
 /*   By: belam <belam@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 16:19:18 by iel-amra          #+#    #+#             */
-/*   Updated: 2024/01/29 09:30:08 by belam            ###   ########.fr       */
+/*   Updated: 2024/01/29 12:38:55 by belam            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 
 template<typename T>
 MutantStack<T>::iterator::iterator()
@@ -24,6 +25,7 @@ MutantStack<T>::iterator::iterator(unsigned int i, MutantStack<T> *stack) : _i(i
 template<typename T>
 MutantStack<T>::iterator::~iterator()
 {
+    
 }
 
 
@@ -50,7 +52,7 @@ T &MutantStack<T>::iterator::operator*()
 template<typename T>
 bool MutantStack<T>::iterator::operator!=(const iterator & rhs)
 {
-    return (!(_i == rhs._i));
+    return (_i != rhs._i || _stack != rhs._stack);
 }
 
 template<typename T>
@@ -71,6 +73,20 @@ typename MutantStack<T>::iterator MutantStack<T>::iterator::operator++(int)
 {
     _i++;
     return (iterator(_i - 1, _stack));
+}
+
+template<typename T> 
+typename MutantStack<T>::iterator &MutantStack<T>::iterator::operator--()
+{
+    _i--;
+    return (*this);
+}
+
+template<typename T> 
+typename MutantStack<T>::iterator MutantStack<T>::iterator::operator--(int)
+{
+    _i--;
+    return (iterator(_i + 1, _stack));
 }
 
 template<typename T>
@@ -112,6 +128,8 @@ typename MutantStack<T>::iterator MutantStack<T>::end()
 template<typename T>
 T &MutantStack<T>::operator[](unsigned int i)
 {
+    if (i >= this->size())
+        throw std::exception();
     typename std::vector<T> tab(this->size() - i - 1);
     typename std::vector<T>::iterator itb = tab.begin();
     typename std::vector<T>::iterator ite = tab.end();
@@ -126,5 +144,3 @@ T &MutantStack<T>::operator[](unsigned int i)
         this->push(it[-1]);
     return (res);
 }
-
-
