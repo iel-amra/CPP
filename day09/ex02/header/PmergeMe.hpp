@@ -6,6 +6,7 @@
 # include <cstring>
 # include <vector>
 # include <stdlib.h>
+# include <cmath>
 
 bool check(int argc,char **argv);
 std::vector<std::vector <int> > parse_for_vect(int argc, char **argv);
