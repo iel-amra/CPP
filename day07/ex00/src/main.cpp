@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: belam <belam@student.42.fr>                +#+  +:+       +#+        */
+/*   By: iel-amra <iel-amra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/22 10:25:13 by belam             #+#    #+#             */
-/*   Updated: 2023/05/22 22:22:22 by belam            ###   ########.fr       */
+/*   Updated: 2024/01/22 10:59:15 by iel-amra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ int main()
         cout << "min : "<< min(a, b) << endl;
         cout << "max : "<< max(a, b) << endl;
         min(c, a) -= 3;
+        cout << "a : " << b << endl;
         max(a, b) -= 1;
         cout << "b : " << b << endl << endl;
     }

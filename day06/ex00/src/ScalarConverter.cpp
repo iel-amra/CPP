@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ScalarConverter.cpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: belam <belam@student.42.fr>                +#+  +:+       +#+        */
+/*   By: iel-amra <iel-amra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/22 10:25:08 by belam             #+#    #+#             */
-/*   Updated: 2023/05/22 10:25:09 by belam            ###   ########.fr       */
+/*   Updated: 2024/01/18 08:21:10 by iel-amra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -156,7 +156,7 @@ void ScalarConverter::_convertFloat(const std::string & str)
     if (_float < SCHAR_MIN || _float > SCHAR_MAX)
         _flags[0] |= OVERFLOW;
     _int = static_cast<int>(_float);
-    if (_float < INT_MIN || _float > INT_MAX)
+    if (_float <  static_cast<float>(INT_MIN) || _float >  static_cast<float>(INT_MAX))
         _flags[1] |= OVERFLOW;
     _double = static_cast<double>(_float);
 }

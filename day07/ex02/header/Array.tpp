@@ -6,7 +6,7 @@
 /*   By: iel-amra <iel-amra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 09:25:48 by iel-amra          #+#    #+#             */
-/*   Updated: 2023/05/24 10:06:49 by iel-amra         ###   ########.fr       */
+/*   Updated: 2024/01/22 11:50:29 by iel-amra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ template<typename T>
 Array<T> &Array<T>::operator=(Array<T> const & rhs)
 {
     if  (_array)
-        delete _array;
+        delete[] _array;
     _nb = 0;
     _array = NULL;
     _array = new T[rhs._nb];
@@ -42,12 +42,12 @@ Array<T> &Array<T>::operator=(Array<T> const & rhs)
 }
 
 template<typename T>
-Array<T>::Array(int nb) : _array(new T[nb]), _nb(nb)
+Array<T>::Array(const unsigned int nb) : _array(new T[nb]), _nb(nb)
 {
 }
 
 template<typename T>
-T &Array<T>::operator[](unsigned int nb) const
+T &Array<T>::operator[](const unsigned int nb) const
 {
     if (nb >= _nb)
         throw std::exception();

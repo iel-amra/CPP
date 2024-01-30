@@ -29,7 +29,6 @@ int main()
         std::cout << *it << std::endl;
         ++it;
     }
-    mstack[689];
     std::stack<int> s(mstack);
     return 0;
 }

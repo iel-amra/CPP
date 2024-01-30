@@ -2,7 +2,10 @@
 #include <Array.hpp>
 #include <cstdlib>
 
-#define MAX_VAL 500
+using std::cout;
+using std::endl;
+
+#define MAX_VAL 1000
 int main(int, char**)
 {
     Array<int> numbers(MAX_VAL);
@@ -11,14 +14,23 @@ int main(int, char**)
     for (int i = 0; i < MAX_VAL; i++)
     {
         const int value = rand();
-        //std::cout << mirror[i] << std::endl;
         numbers[i] = value;
         mirror[i] = value;
+        //std::cout << mirror[i] << std::endl;
+        //std::cout << numbers[i] << std::endl;
     }
     //SCOPE
     {
         Array<int> tmp = numbers;
         Array<int> test(tmp);
+        tmp[0] = 5;
+        test[0] = 8;
+        cout << "numbers[0] = " << numbers[0] << endl;
+        cout << "tmp[0] = " << tmp[0] << endl;
+        cout << "test[0] = " << test[0] << endl;
+        cout << "numbers[1] = " << numbers[1] << endl;
+        cout << "tmp[1] = " << tmp[1] << endl;
+        cout << "test[1] = " << test[1] << endl;
     }
     for (int i = 0; i < MAX_VAL; i++)
     {
@@ -49,5 +61,15 @@ int main(int, char**)
         numbers[i] = rand();
     }
     delete [] mirror;//
+
+    Array<int> zero;
+    try
+    {
+        cout << "size of Zero : " << zero.size() << endl;
+    }
+    catch(const std::exception& e)
+    {
+        std::cerr << e.what() << '\n';
+    }
     return 0;
 }

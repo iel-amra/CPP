@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: belam <belam@student.42.fr>                +#+  +:+       +#+        */
+/*   By: iel-amra <iel-amra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/22 10:25:13 by belam             #+#    #+#             */
-/*   Updated: 2023/05/22 15:59:00 by belam            ###   ########.fr       */
+/*   Updated: 2024/01/18 10:08:00 by iel-amra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ void identify(Base& p)
 {
     try
     {
-        dynamic_cast<A&>(p);
+        (void) dynamic_cast<A&>(p);
         cout << "Type A" << endl;
         return;
     }
@@ -51,7 +51,7 @@ void identify(Base& p)
     {}
     try
     {
-        dynamic_cast<B&>(p);
+        (void) dynamic_cast<B&>(p);
         cout << "Type B" << endl;
         return;
     }
