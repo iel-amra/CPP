@@ -5,6 +5,7 @@ using std::cerr;
 using std::endl;
 using std::string;
 using std::vector;
+using std::list;
 
 bool check(int argc, char **argv)
 {
@@ -29,102 +30,58 @@ vector<vector <int> > parse_for_vect(int argc, char **argv)
     return (tab);
 }
 
-vector<int> operator+(vector<int> a, vector<int> b)
+vector<int> operator+(vector<int> a, const vector<int> &b)
 {
-    a.insert(a.begin(), b.begin(), b.end());
+    a.insert(a.end(), b.begin(), b.end());
     return (a);
 }
 
-vector<int> &min(vector<int> &a, vector<int> &b)
+list<int> operator+(list<int> a, list<int> b)
 {
-    if (a[0] < b[0])
-        return (a);
-    return (b);
+    a.splice(a.begin(), b);
+    return (a);
 }
 
-vector<int> &max(vector<int> &a, vector<int> &b)
+bool operator<(const list<int> & a, const list<int> & b)
 {
-    if (a[0] > b[0])
-        return (a);
-    return (b);
+    if (a.front() < b.front())
+        return (true);
+    return (false);
 }
 
-void next_i3(int &i)
+
+void next_i(int &i, int size)
 {
     static int t = 1;
-    static int q = 1;
+    static int q = -1;
+    static int end = 0;
 
-    cout <<"Entree i :" << i << endl;
+    if (i == 2)
+    {
+        t = 1;
+        q = -1;
+        end = 0;
+    }
+    if (size <= 3)
+        end = 1;
     if (i == t)
     {
         t = ((t * 3 - q) * 2 - q) / 3;
-        if (t == 1)
-        {
-            q *= -1;
-            t = 3;
-        }
         q *= -1;
-        i = ((t * 3 - q) * 2 - q) / 3;
-        cout <<" t :" << t << endl;
+        i = ((t * 3 - q) * 2 - q) / 3 - 1;
+        if (i >= size && !end++)
+            i = size - 1;
+        else if (i == size - 1)
+            end++;
+        else if (i >= size && end)
+            i = size;
     }
     else
         --i;
-    cout <<"Sortie i :" << i << endl;
-}
-
-void next_i2(int &i)
-{
-    int j = i;
-
-    if (!(i & 1))
-    {
-        i--;
-        return;
-    }
-    if ((j & 3) == 3)
-        j--;
-    j = j ^ (j >> 1);
-    if (j & (j + 1))
-        i--;
-    else
-        i = i * 4 + ((i + 2) & 3) - 2;
-}
-
-void next_i(int &i)
-{
-    int t = 0;
-    int k = 1;
-    //cout <<"Entree i :" << i << endl;
-    do
-    {
-        t = (pow(2, k + 1) + pow(-1, k)) / 3;
-        k++;
-    //cout <<" t :" << t << endl;
-    }
-    while(t < i);
-    k++;
-    if (t > i)
-        i--;
-    else
-        i = (pow(2, k + 1) + pow(-1, k)) / 3;
-    //cout <<"Sortie i :" << i << endl;
 }
 
 void ford_johnson(vector<vector <int> > &tab)
 {
-    for (int i = 2; i < 100;)
-    {
-        int j = i;
-        int k = i;
-        next_i3(j);
-        next_i2(k);
-        if (k != j)
-            cout << i << " " << k << " " << j << endl;
-        i = k;
-        
-    }
-    return;
-
     int size;
     vector <int> odd;
 
@@ -144,18 +101,47 @@ void ford_johnson(vector<vector <int> > &tab)
         tab[i].resize(size);
     }
     tab.insert(tab.begin(), temp[0]);
-    for (int i = 1; i < static_cast<int>(temp.size()); next_i(i))
-    {
-        int j = 0;
-        while (static_cast<int>(tab.size()) != j && temp[i][0] > tab[j][0])
-            j++;
-        tab.insert(tab.begin() + j, temp[i]);
-    }
+    if (2 == static_cast<int>(temp.size()))
+        tab.insert(std::lower_bound(tab.begin(), tab.end(), temp[1]), temp[1]);
+    for (int i = 2; i < static_cast<int>(temp.size()); next_i(i, temp.size()))
+        tab.insert(std::lower_bound(tab.begin(), tab.end(), temp[i]), temp[i]);
     if (odd.size() != 0)
+        tab.insert(std::lower_bound(tab.begin(), tab.end(), odd), odd);
+}
+
+void ford_johnson(list<list <int> > &lst)
+{
+    int size;
+    list <int> odd;
+
+    if (lst.size() == 1)
+        return;
+    size = lst.front().size();
+    if (lst.size() % 2 == 1)
     {
-        int j = 0;
-        while (static_cast<int>(tab.size()) != j && odd[0] > tab[j][0])
-            j++;
-        tab.insert(tab.begin() + j, odd);
+        odd = lst.back();
+        lst.erase(--lst.end());
     }
+    for (list<list <int> >::iterator it = lst.begin(); it != --lst.end(); )
+    {
+        *it = std::max(*it, *++it) + std::min(*--it, *++it);
+        it = lst.erase(it);
+    }
+    cout << "Before :" << endl;
+    display(lst);
+    ford_johnson(lst);
+    cout << "After :" << endl;
+    display(lst);
+    (void) size;
+    // list<list <int> > temp(lst.size());
+    // for (list<list <int> >::iterator it; it != lst.begin + lst.size() / 2; ++it)
+    // {
+    //     temp[i] = vector<int>(tab[i].begin() + size, lst[i].end());
+    //     lst[i].resize(size);
+    // }
+    // lst.insert(lst.begin(), temp[0]);
+    // for (int i = 2; i < static_cast<int>(temp.size()); next_i(i, temp.size()))
+    //     lst.insert(std::lower_bound(lst.begin(), lst.end(), temp[i]), temp[i]);
+    // if (odd.size() != 0)
+    //     lst.insert(std::lower_bound(lst.begin(), lst.end(), odd), odd);
 }
