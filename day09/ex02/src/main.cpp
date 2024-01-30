@@ -28,5 +28,7 @@ int main(const int argc, char **argv)
     tab = parse_for_vect(argc, argv);
     display(tab);
     ford_johnson(tab);
+    cout << "Display :" << endl;
+    display(tab);
     return (0);
 }

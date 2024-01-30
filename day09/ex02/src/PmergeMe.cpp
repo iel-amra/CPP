@@ -51,28 +51,36 @@ vector<int> &max(vector<int> &a, vector<int> &b)
 
 void ford_johnson(vector<vector <int> > &tab)
 {
-
-    int size = tab[0].size();
+    int size;
+    vector <int> odd;
 
     if (tab.size() == 1)
         return;
-
+    size = tab[0].size();
+    if (tab.size() % 2 == 1)
+        odd = tab[tab.size() - 1];
     for (int i = 0; i < static_cast<int>(tab.size()) / 2; i++)
         tab[i] = max(tab[2 * i], tab[2 * i + 1]) + min(tab[2 * i], tab[2 * i + 1]);
     tab.resize(tab.size() / 2);
     ford_johnson(tab);
-    cout << "Size :" << tab.size() << endl;
-    display(tab);
+    vector<vector <int> > temp(tab.size());
     for (int i = 0; i < static_cast<int>(tab.size()); i++)
     {
-        cout << i << " Size = " << tab.size() << endl;
-        if (static_cast<int>(tab[i].size()) != size)
-        {
-            int j = 0;
-            while (static_cast<int>(tab.size()) != j && tab[i][size] > tab[j][0])
-                j++;
-            tab.insert(tab.begin() + j + 1, vector<int>(tab[i].begin() + size, tab[i].end()));
-            tab[i].resize(size);
-        }
+        temp[i] = vector<int>(tab[i].begin() + size, tab[i].end());
+        tab[i].resize(size);
+    }
+    for (int i = 0; i < static_cast<int>(temp.size()); i++)
+    {
+        int j = 0;
+        while (static_cast<int>(tab.size()) != j && temp[i][0] > tab[j][0])
+            j++;
+        tab.insert(tab.begin() + j, temp[i]);
+    }
+    if (odd.size() != 0)
+    {
+        int j = 0;
+        while (static_cast<int>(tab.size()) != j && odd[0] > tab[j][0])
+            j++;
+        tab.insert(tab.begin() + j, odd);
     }
 }
