@@ -8,7 +8,7 @@ OBJ = $(SRC:${SRC_DIR}/%.${EXT}=${OBJ_DIR}/%.o)
 HEADER_DIR = header
 HEADER_FILES = PmergeMe.hpp
 HEADER = $(HEADER_FILES:%=${HEADER_DIR}/%)
-FLAGS = -Wall -Wextra -Werror -std=c++98
+FLAGS = -Wall -Wextra -Werror -std=c++98 -g3
 
 all : ${NAME}
 

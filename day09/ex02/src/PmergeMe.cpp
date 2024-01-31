@@ -49,35 +49,28 @@ bool operator<(const list<int> & a, const list<int> & b)
     return (false);
 }
 
-
-void next_i(int &i, int size)
+int next_i(int &i, int size)
 {
     static int t = 1;
     static int q = -1;
-    static int end = 0;
 
-    if (i == 2)
+    if (i == 0)
     {
         t = 1;
         q = -1;
-        end = 0;
+        i = 2;
     }
-    if (size <= 3)
-        end = 1;
     if (i == t)
     {
         t = ((t * 3 - q) * 2 - q) / 3;
         q *= -1;
         i = ((t * 3 - q) * 2 - q) / 3 - 1;
-        if (i >= size && !end++)
-            i = size - 1;
-        else if (i == size - 1)
-            end++;
-        else if (i >= size && end)
-            i = size;
     }
     else
         --i;
+    if (i >= size)
+        i = size - 1;
+    return(i);
 }
 
 void ford_johnson(vector<vector <int> > &tab)
@@ -101,10 +94,9 @@ void ford_johnson(vector<vector <int> > &tab)
         tab[i].resize(size);
     }
     tab.insert(tab.begin(), temp[0]);
-    if (2 == static_cast<int>(temp.size()))
-        tab.insert(std::lower_bound(tab.begin(), tab.end(), temp[1]), temp[1]);
-    for (int i = 2; i < static_cast<int>(temp.size()); next_i(i, temp.size()))
-        tab.insert(std::lower_bound(tab.begin(), tab.end(), temp[i]), temp[i]);
+    int index = 0;
+    for (int i = 0; i < static_cast<int>(temp.size()) - 1; i++)
+        tab.insert(std::lower_bound(tab.begin(), tab.end(), temp[next_i(index, temp.size())]), temp[index]);
     if (odd.size() != 0)
         tab.insert(std::lower_bound(tab.begin(), tab.end(), odd), odd);
 }
@@ -122,23 +114,23 @@ void ford_johnson(list<list <int> > &lst)
         odd = lst.back();
         lst.erase(--lst.end());
     }
-    for (list<list <int> >::iterator it = lst.begin(); it != --lst.end(); )
+    for (list<list <int> >::iterator it = lst.begin(); it != lst.end();)
     {
         *it = std::max(*it, *++it) + std::min(*--it, *++it);
         it = lst.erase(it);
     }
-    cout << "Before :" << endl;
-    display(lst);
+    // cout << "Before :" << endl;
+    // display<list<list <int> >, list<int> >(lst);
     ford_johnson(lst);
-    cout << "After :" << endl;
-    display(lst);
-    (void) size;
-    // list<list <int> > temp(lst.size());
-    // for (list<list <int> >::iterator it; it != lst.begin + lst.size() / 2; ++it)
-    // {
-    //     temp[i] = vector<int>(tab[i].begin() + size, lst[i].end());
-    //     lst[i].resize(size);
-    // }
+    // cout << "After :" << endl;
+    // display<list<list <int> >, list<int> >(lst);
+    // (void) size;
+
+    list<list <int> > temp();
+    for (list<list <int> >::iterator it = lst.begin(); it != lst.end(); ++it)
+    {
+        temp[i] = vector<int>(tab[i].begin() + size, lst[i].end());
+    }
     // lst.insert(lst.begin(), temp[0]);
     // for (int i = 2; i < static_cast<int>(temp.size()); next_i(i, temp.size()))
     //     lst.insert(std::lower_bound(lst.begin(), lst.end(), temp[i]), temp[i]);
