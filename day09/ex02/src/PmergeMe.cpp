@@ -5,7 +5,7 @@ using std::cerr;
 using std::endl;
 using std::string;
 using std::vector;
-using std::list;
+using std::deque;
 
 bool check(int argc, char **argv)
 {
@@ -36,17 +36,10 @@ vector<int> operator+(vector<int> a, const vector<int> &b)
     return (a);
 }
 
-list<int> operator+(list<int> a, list<int> b)
+deque<int> operator+(deque<int> a, const deque<int> &b)
 {
-    a.splice(a.begin(), b);
+    a.insert(a.end(), b.begin(), b.end());
     return (a);
-}
-
-bool operator<(const list<int> & a, const list<int> & b)
-{
-    if (a.front() < b.front())
-        return (true);
-    return (false);
 }
 
 int next_i(int &i, int size)
@@ -101,39 +94,30 @@ void ford_johnson(vector<vector <int> > &tab)
         tab.insert(std::lower_bound(tab.begin(), tab.end(), odd), odd);
 }
 
-void ford_johnson(list<list <int> > &lst)
+void ford_johnson(deque<deque <int> > &dq)
 {
     int size;
-    list <int> odd;
+    deque <int> odd;
 
-    if (lst.size() == 1)
+    if (dq.size() == 1)
         return;
-    size = lst.front().size();
-    if (lst.size() % 2 == 1)
+    size = dq[0].size();
+    if (dq.size() % 2 == 1)
+        odd = dq[dq.size() - 1];
+    for (int i = 0; i < static_cast<int>(dq.size()) / 2; i++)
+        dq[i] = max(dq[2 * i], dq[2 * i + 1]) + min(dq[2 * i], dq[2 * i + 1]);
+    dq.resize(dq.size() / 2);
+    ford_johnson(dq);
+    deque<deque <int> > temp(dq.size());
+    for (int i = 0; i < static_cast<int>(dq.size()); i++)
     {
-        odd = lst.back();
-        lst.erase(--lst.end());
+        temp[i] = deque<int>(dq[i].begin() + size, dq[i].end());
+        dq[i].resize(size);
     }
-    for (list<list <int> >::iterator it = lst.begin(); it != lst.end();)
-    {
-        *it = std::max(*it, *++it) + std::min(*--it, *++it);
-        it = lst.erase(it);
-    }
-    // cout << "Before :" << endl;
-    // display<list<list <int> >, list<int> >(lst);
-    ford_johnson(lst);
-    // cout << "After :" << endl;
-    // display<list<list <int> >, list<int> >(lst);
-    // (void) size;
-
-    list<list <int> > temp();
-    for (list<list <int> >::iterator it = lst.begin(); it != lst.end(); ++it)
-    {
-        temp[i] = vector<int>(tab[i].begin() + size, lst[i].end());
-    }
-    // lst.insert(lst.begin(), temp[0]);
-    // for (int i = 2; i < static_cast<int>(temp.size()); next_i(i, temp.size()))
-    //     lst.insert(std::lower_bound(lst.begin(), lst.end(), temp[i]), temp[i]);
-    // if (odd.size() != 0)
-    //     lst.insert(std::lower_bound(lst.begin(), lst.end(), odd), odd);
+    dq.insert(dq.begin(), temp[0]);
+    int index = 0;
+    for (int i = 0; i < static_cast<int>(temp.size()) - 1; i++)
+        dq.insert(std::lower_bound(dq.begin(), dq.end(), temp[next_i(index, temp.size())]), temp[index]);
+    if (odd.size() != 0)
+        dq.insert(std::lower_bound(dq.begin(), dq.end(), odd), odd);
 }

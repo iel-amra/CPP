@@ -5,7 +5,7 @@
 # include <string>
 # include <cstring>
 # include <vector>
-# include <list>
+# include <deque>
 # include <stdlib.h>
 # include <cmath>
 # include <algorithm>
@@ -13,7 +13,7 @@
 bool check(int argc,char **argv);
 std::vector<std::vector <int> > parse_for_vect(int argc, char **argv);
 void ford_johnson(std::vector<std::vector <int> > &tab);
-void ford_johnson(std::list<std::list <int> > &tab);
+void ford_johnson(std::deque<std::deque <int> > &tab);
 
 template <typename T, typename U>
 void display(T & container)
