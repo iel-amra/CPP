@@ -9,6 +9,7 @@
 # include <stdlib.h>
 # include <cmath>
 # include <algorithm>
+# include <bits/stdc++.h> 
 
 bool check(int argc,char **argv);
 std::vector<std::vector <int> > parse_for_vect(int argc, char **argv);
@@ -24,8 +25,8 @@ void display(T & container)
         {
             std::cout << *it2 << " ";
         }
-        std::cout << std::endl;
     }
+    std::cout << std::endl;
 }
 
 #endif

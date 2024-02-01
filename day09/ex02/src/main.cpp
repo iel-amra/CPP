@@ -16,6 +16,7 @@ int main(const int argc, char **argv)
 {
     vector<vector <int> > tab;
     deque<deque <int> > dq;
+    time_t start, middle, end; 
 
     if (argc == 1)
     {
@@ -32,18 +33,22 @@ int main(const int argc, char **argv)
         tab = parse_for_vect(argc, argv);
         for (vector<vector <int> >::iterator it = tab.begin(); it != tab.end(); it++)
             dq.push_back(deque<int>(it->begin(), it->end()));
-        cout << "Vector :" << endl;
+        cout << "Before: ";
         display<vector<vector <int> >, vector<int> >(tab);
-        cout << "deque :" << endl;
-        display<deque<deque <int> >, deque<int> >(dq);
+        // cout << "deque :" << endl;
+        // display<deque<deque <int> >, deque<int> >(dq);
+        time(&start);
         ford_johnson(tab);
+        time(&middle);
         ford_johnson(dq);
-        cout << "After Vector :" << endl;
+        time(&end);
+        cout << "After: ";
         display<vector<vector <int> >, vector<int> >(tab);
-        cout << "After deque :" << endl;
-        display<deque<deque <int> >, deque<int> >(dq);
+        // cout << "After deque :" << endl;
+        // display<deque<deque <int> >, deque<int> >(dq);
+        cout << double(middle - start) << end;
     }
-    catch (std::excpetion &e)
+    catch (std::exception &e)
     {
         cerr << e.what() << endl;
         return (1);
