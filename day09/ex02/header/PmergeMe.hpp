@@ -9,7 +9,8 @@
 # include <stdlib.h>
 # include <cmath>
 # include <algorithm>
-# include <bits/stdc++.h> 
+# include <bits/stdc++.h>
+# include <sys/time.h>
 
 bool check(int argc,char **argv);
 std::vector<std::vector <int> > parse_for_vect(int argc, char **argv);

@@ -12,11 +12,54 @@ using std::string;
 using std::vector;
 using std::deque;
 
+int	time_is_inf(struct timeval t1, struct timeval t2)
+{
+	if (t1.tv_sec > t2.tv_sec)
+		return (0);
+	if (t1.tv_sec < t2.tv_sec)
+		return (1);
+	if (t1.tv_usec < t2.tv_usec)
+		return (1);
+	return (0);
+}
+
+struct timeval	time_add(struct timeval t1, struct timeval t2)
+{
+	struct timeval	time;
+
+	time.tv_usec = (t1.tv_usec + t2.tv_usec) % 1000000;
+	time.tv_sec = t1.tv_sec + t2.tv_sec + (t1.tv_usec + t2.tv_usec > 1000000);
+	return (time);
+}
+
+struct timeval	ms_to_timeval(unsigned long ms)
+{
+	struct timeval	time;
+
+	time.tv_usec = ms * 1000 % 1000000;
+	time.tv_sec = ms / 1000;
+	return (time);
+}
+
+struct timeval	time_minus(struct timeval t1, struct timeval t2)
+{
+	struct timeval	time;
+
+	time.tv_usec = (1000000 + t1.tv_usec - t2.tv_usec) % 1000000;
+	time.tv_sec = t1.tv_sec - t2.tv_sec - (t1.tv_usec < t2.tv_usec);
+	return (time);
+}
+
+void	print_t(struct timeval time)
+{
+	cout << time.tv_sec << time.tv_usec << endl;
+}
+
 int main(const int argc, char **argv)
 {
     vector<vector <int> > tab;
     deque<deque <int> > dq;
-    time_t start, middle, end; 
+    struct timeval  begin, middle, end; 
 
     if (argc == 1)
     {
@@ -37,16 +80,16 @@ int main(const int argc, char **argv)
         display<vector<vector <int> >, vector<int> >(tab);
         // cout << "deque :" << endl;
         // display<deque<deque <int> >, deque<int> >(dq);
-        time(&start);
+        gettimeofday(&begin, NULL);
         ford_johnson(tab);
-        time(&middle);
+        gettimeofday(&middle, NULL);
         ford_johnson(dq);
-        time(&end);
+        gettimeofday(&end, NULL);
         cout << "After: ";
         display<vector<vector <int> >, vector<int> >(tab);
         // cout << "After deque :" << endl;
         // display<deque<deque <int> >, deque<int> >(dq);
-        cout << double(middle - start) << end;
+        print_t(time_minus(middle, begin));
     }
     catch (std::exception &e)
     {
