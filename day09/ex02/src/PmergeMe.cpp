@@ -30,6 +30,15 @@ vector<vector <int> > parse_for_vect(int argc, char **argv)
     return (tab);
 }
 
+deque<deque <int> > parse_for_deq(int argc, char **argv)
+{
+    deque<deque <int> > tab(argc - 1);
+
+    for (int i = 0; i < argc - 1; ++i)
+        tab[i].push_back(atoi(argv[i + 1]));
+    return (tab);
+}
+
 vector<int> operator+(vector<int> a, const vector<int> &b)
 {
     a.insert(a.end(), b.begin(), b.end());

@@ -50,14 +50,18 @@ struct timeval	time_minus(struct timeval t1, struct timeval t2)
 	return (time);
 }
 
-void	print_t(struct timeval time)
+std::ostream	&operator<<(std::ostream & os, struct timeval time)
 {
-	cout << time.tv_sec << time.tv_usec << endl;
+    if (time.tv_sec != 0)
+	    os << time.tv_sec;
+    os << time.tv_usec;
+    return (os);
 }
 
 int main(const int argc, char **argv)
 {
     vector<vector <int> > tab;
+    vector<vector <int> > disp;
     deque<deque <int> > dq;
     struct timeval  begin, middle, end; 
 
@@ -73,23 +77,19 @@ int main(const int argc, char **argv)
     }
     try
     {
-        tab = parse_for_vect(argc, argv);
-        for (vector<vector <int> >::iterator it = tab.begin(); it != tab.end(); it++)
-            dq.push_back(deque<int>(it->begin(), it->end()));
-        cout << "Before: ";
-        display<vector<vector <int> >, vector<int> >(tab);
-        // cout << "deque :" << endl;
-        // display<deque<deque <int> >, deque<int> >(dq);
+        disp = parse_for_vect(argc, argv);
+        cout << "Before:    ";
+        display<vector<vector <int> >, vector<int> >(disp);
         gettimeofday(&begin, NULL);
+        tab = parse_for_vect(argc, argv);
         ford_johnson(tab);
         gettimeofday(&middle, NULL);
+        dq = parse_for_deq(argc, argv);
         ford_johnson(dq);
         gettimeofday(&end, NULL);
-        cout << "After: ";
+        cout << "After:     ";
         display<vector<vector <int> >, vector<int> >(tab);
-        // cout << "After deque :" << endl;
-        // display<deque<deque <int> >, deque<int> >(dq);
-        print_t(time_minus(middle, begin));
+        cout << time_minus(middle, begin) << endl;
     }
     catch (std::exception &e)
     {
