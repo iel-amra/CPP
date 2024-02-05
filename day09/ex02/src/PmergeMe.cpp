@@ -62,7 +62,7 @@ int next_i(int &i, int size)
         q = -1;
         i = 2;
     }
-    if (i == t)
+    else if (i == t)
     {
         t = ((t * 3 - q) * 2 - q) / 3;
         q *= -1;
@@ -72,7 +72,7 @@ int next_i(int &i, int size)
         --i;
     if (i >= size)
         i = size - 1;
-    return(i);
+    return (i);
 }
 
 void ford_johnson(vector<vector <int> > &tab)
@@ -98,7 +98,11 @@ void ford_johnson(vector<vector <int> > &tab)
     tab.insert(tab.begin(), temp[0]);
     int index = 0;
     for (int i = 0; i < static_cast<int>(temp.size()) - 1; i++)
-        tab.insert(std::lower_bound(tab.begin(), tab.end(), temp[next_i(index, temp.size())]), temp[index]);
+    {
+        next_i(index, temp.size());
+        // cout << index << " ";
+        tab.insert(std::lower_bound(tab.begin(), tab.end(), temp[index]), temp[index]);
+    }
     if (odd.size() != 0)
         tab.insert(std::lower_bound(tab.begin(), tab.end(), odd), odd);
 }
@@ -126,7 +130,10 @@ void ford_johnson(deque<deque <int> > &dq)
     dq.insert(dq.begin(), temp[0]);
     int index = 0;
     for (int i = 0; i < static_cast<int>(temp.size()) - 1; i++)
-        dq.insert(std::lower_bound(dq.begin(), dq.end(), temp[next_i(index, temp.size())]), temp[index]);
+    {
+        next_i(index, temp.size());
+        dq.insert(std::lower_bound(dq.begin(), dq.end(), temp[index]), temp[index]);
+    }
     if (odd.size() != 0)
         dq.insert(std::lower_bound(dq.begin(), dq.end(), odd), odd);
 }

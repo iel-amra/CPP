@@ -27,6 +27,7 @@ void display(T & container)
         {
             std::cout << *it2 << " ";
         }
+        // std::cout << " || ";
     }
     std::cout << std::endl;
 }
