@@ -89,7 +89,8 @@ int main(const int argc, char **argv)
         gettimeofday(&end, NULL);
         cout << "After:     ";
         display<vector<vector <int> >, vector<int> >(tab);
-        cout << time_minus(middle, begin) << endl;
+        cout << "Tenps avec vector : " << time_minus(middle, begin) << " us." << endl;
+        cout << "Tenps avec deque : " << time_minus(end, middle) << " us." << endl;
     }
     catch (std::exception &e)
     {

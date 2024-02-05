@@ -29,6 +29,11 @@ float ext(stack<float>  & numbers)
     return (r);
 }
 
+const char* bad_input_exception::what() const throw()
+{
+    return ("Bad sequence of numbers and signs");
+}
+
 float calculate(std::string &input)
 {
     stack<float>  numbers;
@@ -39,7 +44,7 @@ float calculate(std::string &input)
         if (input[i] >= '0' && input[i] <= '9')
             numbers.push(static_cast<float>(input[i] - '0'));
         else if (numbers.size() == 1)
-                throw std::exception();
+                throw bad_input_exception();
         else if (input[i] == '+')
             numbers.push(ext(numbers) + ext(numbers));
         else if (input[i] == '-')
@@ -52,6 +57,6 @@ float calculate(std::string &input)
             ++i;
     }
     if (numbers.size() != 1)
-        throw std::exception();
+        throw bad_input_exception();
     return (numbers.top());
 }

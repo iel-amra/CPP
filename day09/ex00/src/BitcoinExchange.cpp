@@ -21,14 +21,19 @@ bool check_date(const string & date)
 {
     if (date.size() != 10)
         return false;
-    string day = date.substr(8, 2);
-    string month = date.substr(5, 2);
+    int day = atoi(date.substr(8, 2).c_str());
+    int month = atoi(date.substr(5, 2).c_str());
+    int year = atoi(date.substr(0, 4).c_str());
     if (date.substr(0, 4).find_first_not_of("0123456789") != string::npos
-        || month.find_first_not_of("0123456789") != string::npos
-        || day.find_first_not_of("0123456789") != string::npos
+        || date.substr(5, 2).find_first_not_of("0123456789") != string::npos
+        || date.substr(0, 4).find_first_not_of("0123456789") != string::npos
         || date[4] != '-' || date[7] != '-'
-        || month > "12" || month == "00"
-        || day > "31" || day == "00")
+        || month > 12 || month == 00
+        || day > 31 || day == 00
+        || (month < 7 && month % 2 == 0 && day > 30)
+        || (month > 8 && month % 2 == 1 && day > 30)
+        || (month == 2 && day > 29)
+        || (month == 2 && (year % 4 != 0 || year % 100 == 0) && year % 400 != 0 && day > 28))
             return false;
     return true;
 }

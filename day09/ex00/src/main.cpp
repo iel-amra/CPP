@@ -7,6 +7,7 @@
 #include "BitcoinExchange.hpp"
 
 using std::cout;
+using std::cerr;
 using std::endl;
 using std::string;
 using std::ifstream;
@@ -28,15 +29,22 @@ int main(int argc, char **argv)
         std::cerr << "Failed to open file : " << argv[1] << endl;
         return (1);
     }
-    mymap data;
-    data = get_parsed_data();
-    std::getline (file, buffer);
-    if (buffer != "date | value")
-        parse_line(buffer, data);
-    while (!file.eof())
+    try
     {
+        mymap data;
+        data = get_parsed_data();
         std::getline (file, buffer);
-        parse_line(buffer, data);
+        if (buffer != "date | value")
+            parse_line(buffer, data);
+        while (!file.eof())
+        {
+            std::getline (file, buffer);
+            parse_line(buffer, data);
+        }
+    }
+    catch (std::exception &e)
+    {
+        cerr << e.what();
     }
     return (0);
 }

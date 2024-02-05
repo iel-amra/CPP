@@ -100,7 +100,6 @@ void ford_johnson(vector<vector <int> > &tab)
     for (int i = 0; i < static_cast<int>(temp.size()) - 1; i++)
     {
         next_i(index, temp.size());
-        // cout << index << " ";
         tab.insert(std::lower_bound(tab.begin(), tab.end(), temp[index]), temp[index]);
     }
     if (odd.size() != 0)
